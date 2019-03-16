@@ -7,8 +7,4 @@ __author_email__ = "david.hagan@quant-aq.com"
 from .baseapi import TokenError, NotFoundError, NotPermittedError, \
     BadRequestError
 
-from .Account import Account
-from .Manager import QuantAQ
-from .Device import Device
-from .Data import Data, ResearchData
-from .Log import Log
+from .legacy import *

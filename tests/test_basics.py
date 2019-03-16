@@ -8,7 +8,7 @@ class SetupTestCase(unittest.TestCase):
     def setUp(self):
         # source the local dev token (only works on david's laptop)
         self.token = os.environ.get("QUANTAQ_APIKEY_DEV")
-        self.api = quantaq.QuantAQ(token=self.token)
+        self.api = quantaq.legacy.QuantAQ(token=self.token)
 
         # if testing on david's MBP, change the endpoint
         if sys.platform == "darwin":
@@ -17,97 +17,104 @@ class SetupTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_manager(self):
-        self.assertIsInstance(self.api, quantaq.QuantAQ)
-        self.assertTrue(hasattr(self.api, "get_account"))
-        self.assertTrue(hasattr(self.api, "get_devices"))
-        self.assertEqual(self.api.endpoint, "http://localhost:5000/api/")
-
     def test_account(self):
-        mngr = self.api
-        self.assertEqual(self.api.endpoint, "http://localhost:5000/api/")
-
-        account = mngr.get_account()
-        self.assertIsInstance(account, quantaq.Account)
-        self.assertIsNotNone(account.email)
-        self.assertIsNotNone(account.username)
-        self.assertIsNotNone(account.confirmed)
-        self.assertIsNotNone(account.last_name)
-        self.assertIsNotNone(account.first_name)
-        self.assertIsNotNone(account.member_since)
-    
-    def test_device(self):
         mngr = self.api
         self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
 
-        # return devices as json
-        devices = mngr.get_devices(return_type="json")
+        # return the account as json
+        account = mngr.get_account()
+        self.assertIsNotNone(account["confirmed"])
+        self.assertIsNotNone(account["username"])
+        self.assertIsNotNone(account["email"])
+    
+    def test_devices(self):
+        mngr = self.api
+        self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
+
+        # get devices as a list
+        devices = mngr.get_devices()
         self.assertTrue(type(devices), list)
 
-        # return devices as a dataframe
-        devices = mngr.get_devices(return_type="dataframe")
+        # get devices as a dataframe
+        devices = mngr.get_devices(return_type='dataframe')
         self.assertIsInstance(devices, pd.DataFrame)
 
-        # return devices as objects
-        devices = mngr.get_devices(return_type="object")
-        for d in devices:
-            self.assertIsInstance(d, quantaq.Device)
-            self.assertIsNotNone(d.sn)
-            self.assertIsNotNone(d.n_datapoints)
-            self.assertIsNotNone(d.model)
-            self.assertIsNotNone(d.url)
+        # try limiting to just one result
+        devices = mngr.get_devices(params=dict(limit=1))
+        self.assertEqual(len(devices), 1)
 
-            d2 = quantaq.Device.get_object(sn=d.sn, token=self.api.token, endpoint=self.api.endpoint)
+        # get just one device
+        device = mngr.get_device(sn=devices[0]["sn"])
+        self.assertIsNotNone(device["sn"])
+        self.assertIsNotNone(device["url"])
+
+        # update a device
+        old_city = device["city"]
+        new_city = "New City"
+
+        device = mngr.update_device(sn=device["sn"], params=dict(city=new_city))
+        self.assertEqual(device["city"], new_city)
+
+        with self.assertRaises(NotImplementedError):
+            mngr.add_device(params=dict())
         
-        # try updating a record
-        city = d2.city
-        self.assertNotEqual(city, "Delhi")
-        d2.update(params=dict(city="Delhi"))
-        self.assertEqual(d2.city, "Delhi")
-        d2.update(params=dict(city=city))
-        self.assertEqual(d2.city, city)
+        with self.assertRaises(NotImplementedError):
+            mngr.delete_device(sn="")
 
-        # try posting a new device and then deleting the same device
-        new_device = {
-            'sn': "TMP-001",
-            'model': "arisense_v200",
-            'city': "Cambridge",
-            'country': "US"
-        }
-
-        new = mngr.post_device(new_device)
-        print (new)
-        self.assertIsInstance(new, quantaq.Device)
-
-        new.destroy()
+    def test_calmodels(self):
+       pass
     
     def test_data(self):
         mngr = self.api
         self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
 
+        # get the devices
+        devices = mngr.get_devices()
+        sn = devices[0]["sn"]
+
+        # get a list of all cleaned data in json format
+        data = mngr.get_data(sn=sn, return_type='json', final_data=True)
+        self.assertTrue(type(data), list)
+
+        # get a list of all cleaned data in dataframe format
+        data = mngr.get_data(sn=sn, return_type='dataframe', final_data=True)
+        self.assertIsInstance(data, pd.DataFrame)
+
+        # get a list of all raw data in json format
+        data = mngr.get_data(sn=sn, return_type='json', final_data=False)
+        self.assertTrue(type(data), list)
+
+        # get a list of all raw data as a dataframe
+        data = mngr.get_data(sn=sn, return_type='dataframe', final_data=False)
+        self.assertIsInstance(data, pd.DataFrame)
+
+        with self.assertRaises(NotImplementedError):
+            mngr.add_data()
+
+        with self.assertRaises(NotImplementedError):
+            mngr.update_data("", 1)
+
+        with self.assertRaises(NotImplementedError):
+            mngr.delete_data("", 1)
+
+    def test_logs(self):
+        mngr = self.api
+        self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
+
         # get a device
-        device = mngr.get_devices(return_type="object")
-        device = device[0]
-        self.assertIsInstance(device, quantaq.Device)
+        devices = mngr.get_devices()
+        sn = devices[0]["sn"]
 
-        # get normal data as json
-        data = device.get_data(return_type='json', researcher=False)
+        # get a list of all logs in json format
+        data = mngr.get_logs(sn=sn, return_type='json')
+        self.assertTrue(type(data), list)
 
-        # get normal data as an object
-        data = device.get_data(return_type='object', researcher=False)
-
-        # get normal data as a dataframe
-        data = device.get_data(return_type='dataframe', researcher=False)
-
-        # get research data as json
-        data = device.get_data(return_type='json', researcher=True)
-
-        # get research data as an object
-        data = device.get_data(return_type='object', researcher=True)
-
-        # get research data as a dataframe
-        data = device.get_data(return_type='dataframe', researcher=True)
-
-
-
-
+        # get a list of all cleaned data in dataframe format
+        data = mngr.get_logs(sn=sn, return_type='dataframe')
+        self.assertIsInstance(data, pd.DataFrame)
+    
+    def test_metadata(self):
+        pass
+    
+    def test_users(self):
+        pass
