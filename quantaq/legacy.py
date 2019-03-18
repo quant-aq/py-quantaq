@@ -153,7 +153,7 @@ class QuantAQ(BaseAPI):
         --------
 
         """
-        raise NotImplementedError("This method is not yet implemented.")
+        return self.fetch_data("devices/{}/data/raw/{}".format(sn, id), type=PUT, **kwargs)
     
     def delete_data(self, sn, id, **kwargs):
         """Delete a data point.
@@ -168,7 +168,7 @@ class QuantAQ(BaseAPI):
         --------
 
         """
-        raise NotImplementedError("This method is not yet implemented.")
+        return self.fetch_data("devices/{}/data/raw/{}".format(sn, id), type=DELETE)
 
     def get_data(self, sn, return_type="json", final_data=True, **kwargs):
         """Return a list of data.
