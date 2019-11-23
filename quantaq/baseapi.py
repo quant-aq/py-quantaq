@@ -45,7 +45,7 @@ class BaseAPI(object):
         else:
             self.token = os.environ.get("QUANTAQ_APIKEY", None)
         
-        self.endpoint = kwargs.pop("endpoint", "https://www.quant-aq.com/api/")
+        self.endpoint = kwargs.pop("endpoint", "https://api.quant-aq.com/device-api/")
         self.version = kwargs.pop("version", "v1")
 
         self._logger = logging.getLogger(__name__)
