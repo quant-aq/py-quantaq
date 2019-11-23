@@ -289,14 +289,23 @@ class QuantAQ(BaseAPI):
 
         Parameters
         ----------
+        params: dict, required
+            A dictionary containing the relevant model upload information including
+            the `sn`, `uploaded`, `name`, `comments`, `object_name`, `training_file`, 
+            `param`, `metrics`, `model_params`, `tag`, and `name`.
 
         Returns
         -------
+        model: dict
+            A dictionary containing the model information that was uploaded.
 
         Examples
         --------
+        >>> api = quantaq.legacy.QuantAQ()
+        >>> api.add_calibration_model(params=dict())
+
         """
-        return
+        return self._make_request("calibration-models/", type=POST, **kwargs)
     
     def get_calibration_models(self, sn, **kwargs):
         """Return the calibration model information for a given device.
