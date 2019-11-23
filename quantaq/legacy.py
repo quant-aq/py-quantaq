@@ -107,23 +107,28 @@ class QuantAQ(BaseAPI):
         >>> api.delete_device(sn="SN001")
 
         """
-        raise NotImplementedError("This method is not yet implemented.")
-        # return self.fetch_data("devices/{}".format(sn), type=DELETE)
+        return self.fetch_data("devices/{}".format(sn), type=DELETE)
 
     def add_device(self, **kwargs):
         """Add a new device.
 
         Parameters
         ----------
+        params: dict, required
+            A dictionary containing all relevant information including the `sn` and `model`.
 
         Returns
         -------
+        device: dict
+            A dictionary containing the device data
 
         Examples
         --------
+        >>> api = quantaq.legacy.QuantAQ()
+        >>> api.add_device(params=dict(sn="SN000-001", model="arisense_v200", city="cambridge"))
 
         """
-        raise NotImplementedError("This method is not yet implemented.")
+        return self._make_request("devices/", type=POST, **kwargs)
 
     def add_data(self, **kwargs):
         """Add new data.
@@ -141,16 +146,26 @@ class QuantAQ(BaseAPI):
         raise NotImplementedError("This method is not yet implemented.")
 
     def update_data(self, sn, id, **kwargs):
-        """Add new data.
+        """Update a data record. This only updates the raw data records.
 
         Parameters
         ----------
+        sn: string, required
+            The device SN
+        id: int, required
+            The id of the individual data point.
+        params: dict, required
+            A dictionary containing the information to update.
 
         Returns
         -------
+        data: dict
+            A dictionary containing the data for a given point.
 
         Examples
         --------
+        >>> api = quantaq.legacy.QuantAQ()
+        >>> api.update_data(sn="SN000-001", id=2121, params=dict(lat=43.1))
 
         """
         return self.fetch_data("devices/{}/data/raw/{}".format(sn, id), type=PUT, **kwargs)
@@ -160,9 +175,15 @@ class QuantAQ(BaseAPI):
 
         Parameters
         ----------
+        sn: string, required
+            The device SN
+        id: int, required
+            The id of the individual data point.
 
         Returns
         -------
+        success: dict
+            A dictionary containing the success or failure of the request.
 
         Examples
         --------
@@ -170,8 +191,8 @@ class QuantAQ(BaseAPI):
         """
         return self.fetch_data("devices/{}/data/raw/{}".format(sn, id), type=DELETE)
 
-    def get_data(self, sn, return_type="json", final_data=True, **kwargs):
-        """Return a list of data.
+    def get_data(self, sn, return_type="json", final_data=True, id=None, **kwargs):
+        """Return a list of data for a given device.
 
         Parameters
         ----------
@@ -181,6 +202,8 @@ class QuantAQ(BaseAPI):
             Return a list of json objects if set to 'json', or a dataframe if set to 'dataframe'
         final_data: bool
             If True, return the cleand/final data; if False, return the raw data (requires necessary permissions)
+        id: int
+            You can retrieve an individual data point by its ID.
         params: dict, optional
             Query based on any column or parameter - see utils for further discussion.
 
@@ -191,11 +214,16 @@ class QuantAQ(BaseAPI):
         Examples
         --------
 
+        >>> api.get_data(sn='<sn>', params=dict(limit=25))
+
         """
         assert(return_type in ("json", "dataframe")), "Bad return_type"
         endpoint = "devices/{}/data/".format(sn)
         if not final_data:
             endpoint += "raw/"
+
+        if id is not None:
+            return self.fetch_data(endpoint + str(id), **kwargs)
 
         data = self.fetch_data(endpoint, **kwargs)
         if return_type == "dataframe":
@@ -228,3 +256,65 @@ class QuantAQ(BaseAPI):
         if return_type == "dataframe":
             data = list_to_dataframe(data)
         return data
+
+    def get_cell_logs(self, sn, return_type="json", **kwargs):
+        """Return a list of cellular logs for device SN.
+
+        Parameters
+        ----------
+        sn: string, required
+            The device SN you would like data for
+        return_type: string, required
+            Return a list of json objects if set to 'json', or a dataframe if set to 'dataframe'
+        params: dict, optional
+            Query based on any column or parameter - see utils for further discussion.
+
+        Returns
+        -------
+        list or dataframe
+
+        Examples
+        --------
+
+        """
+        assert(return_type in ("json", "dataframe")), "Bad return_type"
+
+        data = self.fetch_data("meta-data/cell-data/{}/".format(sn), **kwargs)
+        if return_type == "dataframe":
+            data = list_to_dataframe(data)
+        return data
+
+    def add_calibration_model(self, **kwargs):
+        """Add a new calibration model.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+
+        Examples
+        --------
+        """
+        return
+    
+    def get_calibration_models(self, sn, **kwargs):
+        """Return the calibration model information for a given device.
+
+        Parameters
+        ----------
+        sn: string, required
+            The device serial number.
+
+        Returns
+        -------
+        info: dict
+            A dictionary containing calibration meta information for all models.
+
+        Examples
+        --------
+        >>> api = quantaq.legacy.QuantAQ()
+        >>> api.get_calibration_models(sn="SN000-001")
+
+        """
+        return self.fetch_data("calibration-models/{}".format(sn), **kwargs)
