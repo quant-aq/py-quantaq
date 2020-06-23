@@ -1,9 +1,20 @@
+[![PyPI version](https://badge.fury.io/py/py-quantaq.svg)](https://badge.fury.io/py/py-quantaq)
+![run and build](https://github.com/quant-aq/py-quantaq/workflows/run%20and%20build/badge.svg)
+[![codecov](https://codecov.io/gh/quant-aq/py-quantaq/branch/master/graph/badge.svg)](https://codecov.io/gh/quant-aq/py-quantaq)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # py-quantaq
 A python wrapper for the QuantAQ RESTful API
 
 ## Installation
 
-Install the library directly from GitHub:
+Install directly from PyPI:
+
+```sh
+$ pip install -U py-quantaq
+```
+
+Or, install the library directly from GitHub:
 
 ```bash
 $ pip install git+https://github.com/quant-aq/py-quantaq.git
@@ -11,7 +22,7 @@ $ pip install git+https://github.com/quant-aq/py-quantaq.git
 
 ## Docs
 
-Coming soon...for now, you'll have to dig through the source.
+Documentation is in progress, but can be found [here](https://quant-aq.github.io/py-quantaq).
 
 ## Authentication
 
@@ -42,15 +53,10 @@ Now, you shouldn't ever have to touch this again or remember the key!
 To run the unittests:
 
 ```sh
-$ python3 setup.py test
+$ poetry run pytest tests
 ```
 
-Or, run the tests with coverage:
-
-```sh
-$ coverage run --source quantaq setup.py test
-$ coverage report -m
-```
+Tests are automagically run via github actions on each build. Results and coverage are tracked via Code Coverage which can be viewed by clicking on the badge above.
 
 
-[1]: https://dev.quant-aq.com/api-keys
+[1]: https://www.quant-aq.com/api-keys
