@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-quantaq"
-version = "0.4.0-alpha.1"
+version = "0.4.0-alpha.2"
 description = "API wrapper and utils for QuantAQ, Inc."
 authors = ["David H Hagan <david.hagan@quant-aq.com>"]
 license = "Apache License 2.0"
@@ -10,6 +10,9 @@ repository = "https://github.com/quant-aq/py-quantaq"
 documentation = "https://quant-aq.github.io/py-quantaq"
 keywords = []
 classifiers = []
+packages = [
+    { include = "quantaq", from='.' }
+]
 
 [tool.poetry.dependencies]
 python = "^3.6.1"
