@@ -16,6 +16,7 @@ python = "^3.6.1"
 requests = "^2.24.0"
 pandas = "^1.0.5"
 setuptools = "^47.3.1"
+getversion = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.4.3"
