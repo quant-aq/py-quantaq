@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-
-__version__ = "0.3.0"
-__author__ = "David H Hagan"
-__author_email__ = "david.hagan@quant-aq.com"
+from pkg_resources import get_distribution
 
 from .baseapi import TokenError, NotFoundError, NotPermittedError, \
     BadRequestError
 
 from .legacy import *
+
+__version__ = get_distribution("opcsim").version
