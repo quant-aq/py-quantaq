@@ -56,6 +56,12 @@ To run the unittests:
 $ poetry run pytest tests
 ```
 
+or, with coverage
+
+```sh
+$ poetry run pytest tests --cov=quantaq --cov-report term-missing -s
+```
+
 Tests are automagically run via github actions on each build. Results and coverage are tracked via Code Coverage which can be viewed by clicking on the badge above.
 
 

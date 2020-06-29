@@ -4,8 +4,11 @@ import quantaq
 
 __version__, _ = get_module_version(quantaq)
 
-from .baseapi import TokenError, NotFoundError, NotPermittedError, \
-    BadRequestError
+from .client import (
+    ClientBase, 
+    DevelopmentAPIClient, 
+    StagingAPIClient, 
+    ProductionAPIClient
+    )
 
-from .legacy import *
-
+QuantAQAPIClient = ProductionAPIClient
