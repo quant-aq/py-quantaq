@@ -46,6 +46,21 @@ def test_cellular_list():
     assert type(resp[0]) == dict
     assert len(resp) == 1
 
+    # check the utility functions
+    from quantaq.utils import to_dataframe
+
+    df = to_dataframe(resp, force_ts=False)
+    assert isinstance(df, pd.DataFrame) is True
+
+    df = to_dataframe(resp, force_ts=True)
+    assert isinstance(df, pd.DataFrame) is True
+
+    # force an error
+    with pytest.raises(TypeError):
+        to_dataframe(df.loc[0])
+
+
+
 @responses.activate
 def test_cellular_drop():
     responses.add(responses.DELETE, "https://localhost/device-api/v1/meta-data/cell-data/1", 

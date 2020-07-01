@@ -49,7 +49,7 @@ def test_logs_list():
 
 @responses.activate
 def test_logs_get():
-    responses.add(responses.GET, "https://localhost/device-api/v1/log/SN000-000/1", 
+    responses.add(responses.GET, "https://localhost/device-api/v1/log/1", 
         status=200, 
         json={
             "level": "INFO",
@@ -66,14 +66,14 @@ def test_logs_get():
         api_key="a123", version="v1")
 
     # test the GET verb
-    resp = client.logs.get(sn="SN000-000", id=1)
+    resp = client.logs.get(id=1)
 
     assert type(resp) == dict
     assert 'millis' in resp
 
 @responses.activate
 def test_logs_update():
-    responses.add(responses.PUT, "https://localhost/device-api/v1/log/SN000-000/1", 
+    responses.add(responses.PUT, "https://localhost/device-api/v1/log/1", 
         status=200, 
         json={
             "level": "WARNING",
@@ -90,7 +90,7 @@ def test_logs_update():
         api_key="a123", version="v1")
 
     # test the GET verb
-    resp = client.logs.update(sn="SN000-000", id=1, level="WARNING")
+    resp = client.logs.update(id=1, level="WARNING")
 
     assert type(resp) == dict
     assert 'millis' in resp
@@ -99,7 +99,7 @@ def test_logs_update():
 
 @responses.activate
 def test_logs_delete():
-    responses.add(responses.DELETE, "https://localhost/device-api/v1/log/SN000-000/1", 
+    responses.add(responses.DELETE, "https://localhost/device-api/v1/log/1", 
         status=200, 
         json={"log deleted": "success"})
     
@@ -108,7 +108,7 @@ def test_logs_delete():
         api_key="a123", version="v1")
 
     # test the GET verb
-    resp = client.logs.drop(sn="SN000-000", id=1)
+    resp = client.logs.drop(id=1)
 
     assert type(resp) == dict
     
