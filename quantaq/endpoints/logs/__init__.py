@@ -35,21 +35,18 @@ class Logs(Domain):
     def get(self, **kwargs) -> dict:
         """Return a single log.
 
-        :param str sn: The device serial number
         :param int id: The id of the log
 
         :returns: Log information
         :rtype: dict
         """
-        sn = kwargs.pop("sn")
         id = kwargs.pop("id")
 
-        return self.client.requests("log/{}/{}".format(sn, id))
+        return self.client.requests("log/" + str(id))
 
     def update(self, **kwargs) -> dict:
         """Update a log record.
 
-        :param str sn: The device serial number
         :param int id: The log id
         :param str level: One of ['INFO', 'WARNING', 'CRITICAL']
         :param str message: The log message
@@ -57,23 +54,18 @@ class Logs(Domain):
         :returns: Log information
         :rtype: dict
         """
-        sn = kwargs.pop("sn")
         id = kwargs.pop("id")
 
-        return self.client.requests("log/{}/{}".format(sn, id),
-                                verb=PUT, **kwargs)
+        return self.client.requests("log/" + str(id), verb=PUT, **kwargs)
     
     def drop(self, **kwargs) -> dict:
         """Delete the log record.
 
-        :param str sn: The device serial number
         :param int id: The log id
 
         :returns: API call status
         :rytpe: dict
         """
-        sn = kwargs.pop("sn")
         id = kwargs.pop("id")
 
-        return self.client.requests("log/{}/{}".format(sn, id),
-                                verb=DELETE)
+        return self.client.requests("log/" + str(id), verb=DELETE)
