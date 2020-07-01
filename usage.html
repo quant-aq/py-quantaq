@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; py-quantaq 0.4.0-alpha.2 documentation</title>
+  <title>Using this Library &mdash; py-quantaq 1.0.0-alpha.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Reference" href="api.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="prev" title="py-quantaq" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.4.0-alpha.2
+                1.0.0-alpha.0
               </div>
             
           
@@ -88,9 +88,55 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview-of-available-commands">Overview of Available Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using this Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#credentials">Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-and-authentication">Setup and Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#customize-the-client">Customize the Client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#account-information">Account Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#teams">Teams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-teams">List All Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-a-single-team">Get a Single Team</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#devices">Devices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-devices">List All Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-a-single-device">Get a Single Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#devices-advanced-queries">Devices - Advanced Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-final-data-for-a-device">List All Final Data for a Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-raw-data-for-a-device">List All Raw Data for a Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limit-your-data-requests">Limit Your Data Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-the-most-recent-data">Return the Most Recent Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-data-requests">Advanced Data Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">Logs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-logs-for-a-device">List All Logs for a Device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-a-single-log">Get a Single Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-a-log">Update a Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drop-a-log">Drop a Log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cellular-logs">Cellular Logs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-cellular-logs">List All Cellular Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drop-a-cellular-log">Drop a Cellular Log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#models-ml-models">Models (ML Models)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-the-models-for-a-single-device">Get the Models for a Single Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-queries">Advanced Queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#limiting-responses">Limiting Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-responses">Sorting Responses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering">Filtering</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
@@ -140,7 +186,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Usage</li>
+      <li>Using this Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,20 +205,318 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>The primary purpose of <em>isoprene</em> is to make it easier to complete internal
-QuantAQ tasks. A quick overview of the available functions are below, with more detailed documentation
-on their complete functionality in the <a class="reference internal" href="api.html"><span class="doc">API Reference</span></a>.</p>
-<ul class="simple">
-<li><p><strong>model-gases</strong> runs the Dash app for training and building ML models for gas sensors</p></li>
-<li><p><strong>model-opcs</strong> runs the Dash app for building OPC models</p></li>
-<li><p><strong>sd-munge</strong> renames the columns to match the data obtained via the API or UI</p></li>
-<li><p><strong>ref-kit</strong> allows you to retrieve data from the calibration chamber database</p></li>
+  <div class="section" id="using-this-library">
+<h1>Using this Library<a class="headerlink" href="#using-this-library" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="credentials">
+<h2>Credentials<a class="headerlink" href="#credentials" title="Permalink to this headline">¶</a></h2>
+<p>To use the QuantAQ API, you must have an API token. This can be obtained
+only via the website when logged in to your account. This token should
+be stored as an environment variable called <strong>QUANTAQ_APIKEY</strong> in order
+to be automagically be discovered. You can also set it when you intiate
+a client as seen below.</p>
+</div>
+<div class="section" id="setup-and-authentication">
+<h2>Setup and Authentication<a class="headerlink" href="#setup-and-authentication" title="Permalink to this headline">¶</a></h2>
+<p>There are several clients that can be used, with <a class="reference internal" href="generated/quantaq.QuantAQAPIClient.html#quantaq.QuantAQAPIClient" title="quantaq.QuantAQAPIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.QuantAQAPIClient</span></code></a>
+being your best bet. You can also create your own from <a class="reference internal" href="generated/quantaq.client.APIClient.html#quantaq.client.APIClient" title="quantaq.client.APIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.client.APIClient</span></code></a> if
+you are using an enterprise server at a different domain.</p>
+<p>To initiate the client (assuming you have set your API key as an environment variable):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">quantaq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">QuantAQAPIClient</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you would like to set your API key at initialization:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">QuantAQAPIClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;***&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you did not properly set the API key, an exception will be raised.</p>
+<div class="section" id="customize-the-client">
+<h3>Customize the Client<a class="headerlink" href="#customize-the-client" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to customize the client to use a custom
+domain or API version, you can do so by creating a new class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantaq.client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+
+<span class="k">class</span> <span class="nc">CustomAPIClient</span><span class="p">(</span><span class="n">APIClient</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;https://custom.domain/api&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;v1&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can then use it just as you would the <a class="reference internal" href="generated/quantaq.QuantAQAPIClient.html#quantaq.QuantAQAPIClient" title="quantaq.QuantAQAPIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.QuantAQAPIClient</span></code></a> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">CustomAPIClient</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="account-information">
+<h2>Account Information<a class="headerlink" href="#account-information" title="Permalink to this headline">¶</a></h2>
+<p>The API client offers easy access to all available QuantAQ API endpoints. To
+obtain your user account information, you can use the <cite>whoami</cite> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">whoami</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">whoami</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">whoami</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="teams">
+<h2>Teams<a class="headerlink" href="#teams" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-all-teams">
+<h3>List All Teams<a class="headerlink" href="#list-all-teams" title="Permalink to this headline">¶</a></h3>
+<p>You can retrieve a list of all the teams you belong to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">teams</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">teams</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-single-team">
+<h3>Get a Single Team<a class="headerlink" href="#get-a-single-team" title="Permalink to this headline">¶</a></h3>
+<p>To get information about a specific team, you can use the <cite>get</cite> method
+with the id as an argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">team</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">teams</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">team</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="devices">
+<h2>Devices<a class="headerlink" href="#devices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-all-devices">
+<h3>List All Devices<a class="headerlink" href="#list-all-devices" title="Permalink to this headline">¶</a></h3>
+<p>To get a list of all devices:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-single-device">
+<h3>Get a Single Device<a class="headerlink" href="#get-a-single-device" title="Permalink to this headline">¶</a></h3>
+<p>You can also use the <code class="xref py py-meth docutils literal notranslate"><span class="pre">quantaq.utils.to_dataframe()</span></code> utility
+function to convert the list to a dataframe:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">quantaq.utils</span> <span class="kn">import</span> <span class="n">to_dataframe</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">to_dataframe</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="devices-advanced-queries">
+<h3>Devices - Advanced Queries<a class="headerlink" href="#devices-advanced-queries" title="Permalink to this headline">¶</a></h3>
+<p>You can also limit the number of devices to return using the <cite>limit</cite> kwarg or
+apply advanced filters using the <cite>filter</cite> kwarg. More details on how to
+generate advanced queries can be found in the <strong>Advanced Queries</strong> section
+near the bottom of this document. However, here are a few examples:</p>
+<p>Return only the first ten devices:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Return only devices with <strong>device_state=ACTIVE</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;device_state,eq,ACTIVE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>Data on the QuantAQ platform is described as either <strong>final</strong>
+data (e.g. PM1, PM2.5, CO, etc) which is cleaned, QA/QC’d, and
+ready to analyze, as well as <strong>raw</strong> data (e.g., voltages, raw bin
+counts for particle counters) which is only available to researchers and
+devices that you are allowed to view. If you have more questions about
+who can see what data, please feel free to reach out to us.</p>
+<div class="section" id="list-all-final-data-for-a-device">
+<h3>List All Final Data for a Device<a class="headerlink" href="#list-all-final-data-for-a-device" title="Permalink to this headline">¶</a></h3>
+<p>You can only retrieve data for a specific device and must reference
+it by its serial number (<cite>sn</cite>). For example, we can retrieve the data
+between two dates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">quantaq.utils</span> <span class="kn">import</span> <span class="n">to_dataframe</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="s2">&quot;2020-01-03&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">to_dataframe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>While you don’t necessarily have to define either a start or stop point, it is highly
+recommended. If you don’t, the response can take some time as it is iterating through
+a large number of API requests to retrieve the paginated results.</p>
+</div>
+<div class="section" id="list-all-raw-data-for-a-device">
+<h3>List All Raw Data for a Device<a class="headerlink" href="#list-all-raw-data-for-a-device" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to retrieve the raw data, you need to specify that
+in your request:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="s2">&quot;2020-01-03&quot;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="limit-your-data-requests">
+<h3>Limit Your Data Requests<a class="headerlink" href="#limit-your-data-requests" title="Permalink to this headline">¶</a></h3>
+<p>You can also limit your data requests so that you only return a
+limited number of data points:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-the-most-recent-data">
+<h3>Return the Most Recent Data<a class="headerlink" href="#return-the-most-recent-data" title="Permalink to this headline">¶</a></h3>
+<p>You can combine filtering and limit to return just the most
+recent data point:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">recent</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s2">&quot;timestamp,asc&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">recent</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, this is the default behaviour, so it is generally not necessary to add the
+sort. If you just return one data point, it will by default be the most recent.</p>
+</div>
+<div class="section" id="advanced-data-requests">
+<h3>Advanced Data Requests<a class="headerlink" href="#advanced-data-requests" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>You can also return just data that meets specific criteria. For example,</dt><dd><p>if we want to return just data where carbon monoxide is between 200-1000 ppb:</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;co,ge,200;co,le,1000&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-all-logs-for-a-device">
+<h3>List All Logs for a Device<a class="headerlink" href="#list-all-logs-for-a-device" title="Permalink to this headline">¶</a></h3>
+<p>You can list all logs for a specific device using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">logs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Like the data endpoint above, you can use the <strong>start</strong> and <strong>stop</strong>
+arguments to limit which logs to obtain.</p>
+</div>
+<div class="section" id="get-a-single-log">
+<h3>Get a Single Log<a class="headerlink" href="#get-a-single-log" title="Permalink to this headline">¶</a></h3>
+<p>You can obtain a single log by referencing its ID, which can
+be obtained from the list of logs above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">111</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-a-log">
+<h3>Update a Log<a class="headerlink" href="#update-a-log" title="Permalink to this headline">¶</a></h3>
+<p>You can update a log (if you have permissions to do so) by using
+the <strong>update</strong> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">111</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;&lt;custom message here&gt;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="drop-a-log">
+<h3>Drop a Log<a class="headerlink" href="#drop-a-log" title="Permalink to this headline">¶</a></h3>
+<p>You can also drop/delete a log if you have permissions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">111</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cellular-logs">
+<h2>Cellular Logs<a class="headerlink" href="#cellular-logs" title="Permalink to this headline">¶</a></h2>
+<p>Cellular logs are custom logs that contain detailed information about
+the state of the cellular or wireless connection of your devices.</p>
+<div class="section" id="list-all-cellular-logs">
+<h3>List All Cellular Logs<a class="headerlink" href="#list-all-cellular-logs" title="Permalink to this headline">¶</a></h3>
+<p>You can list all cellular logs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cellular</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="drop-a-cellular-log">
+<h3>Drop a Cellular Log<a class="headerlink" href="#drop-a-cellular-log" title="Permalink to this headline">¶</a></h3>
+<p>You can also drop/delete a cellular log (if you have permissions):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cellular</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="models-ml-models">
+<h2>Models (ML Models)<a class="headerlink" href="#models-ml-models" title="Permalink to this headline">¶</a></h2>
+<p>Models summarize the machine learning models used to convert raw
+voltages and particle bin counts to the final data. While the model
+itself is not available, the summary statistics, error metrics, and
+a summary of the model can be retrieved.</p>
+<div class="section" id="get-the-models-for-a-single-device">
+<h3>Get the Models for a Single Device<a class="headerlink" href="#get-the-models-for-a-single-device" title="Permalink to this headline">¶</a></h3>
+<p>To get the models used by a specific device:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">models</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">models</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-queries">
+<h2>Advanced Queries<a class="headerlink" href="#advanced-queries" title="Permalink to this headline">¶</a></h2>
+<p>The API itself has quite powerful querying capabilities that can be separated into
+three categories: filtering, limiting, and sorting responses. Below are a brief overview
+of each.</p>
+<div class="section" id="limiting-responses">
+<h3>Limiting Responses<a class="headerlink" href="#limiting-responses" title="Permalink to this headline">¶</a></h3>
+<p>To limit the number of results that are returned for the endpoints that return many
+items, you can use the <strong>limit</strong> keyword argument. The only requirement is that it must
+be an integer (e.g., <strong>limit=5</strong>).</p>
+<p>As an example, if we want to return just the first 5 devices, we can add the limit keyword
+argument as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">devices</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sorting-responses">
+<h3>Sorting Responses<a class="headerlink" href="#sorting-responses" title="Permalink to this headline">¶</a></h3>
+<p>You can sort the results returned using the <strong>sort</strong> keyword argument. To use, you must provide both
+a column to sort by as well as a sort instruction (either <strong>asc</strong> or <strong>desc</strong>). The final format
+looks like <strong>sort=[column],[asc or desc]</strong>. You can also join multiple sorts together using a semicolon.</p>
+<p>As an example, if we want to sort the list of devices by their serial number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="s2">&quot;sn,asc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be quite useful when combined with the limit function! For example, if we want to return the
+100 highest CO values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s2">&quot;co,asc&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering">
+<h3>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h3>
+<p>Filtering allows us to build incredibly detailed queries. There are several arguments that
+can be used to build queries including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>eq</cite>: equals</p></li>
+<li><p><cite>ne</cite>: not equals</p></li>
+<li><p><cite>lt</cite>: less than</p></li>
+<li><p><cite>le</cite>: less than or equal to</p></li>
+<li><p><cite>gt</cite>: greater than</p></li>
+<li><p><cite>ge</cite>: greater than or equal to</p></li>
+<li><p><cite>in</cite>: in</p></li>
+<li><p><cite>like</cite>: like</p></li>
 </ul>
-<div class="section" id="overview-of-available-commands">
-<h2>Overview of Available Commands<a class="headerlink" href="#overview-of-available-commands" title="Permalink to this headline">¶</a></h2>
-<p>Coming soon!</p>
+</div></blockquote>
+<p>The format of the argument must be <cite>filter=”[column],[arg],[value]”</cite>. Like with sort,
+you can combine many filters together using a semicolon.</p>
+<p>For example, if we want to get all data where CO &gt; 1000 ppb:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;co,gt,1000&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If we want to grab the first 100 points where 1000 &lt;= CO &lt;= 5000 ppb:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-000&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;co,ge,1000;co,le,5000&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have more questions about how to build queries, feel free to add an issue to the
+GitHub repository.</p>
+</div>
 </div>
 </div>
 
@@ -187,7 +531,7 @@ on their complete functionality in the <a class="reference internal" href="api.h
         <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="py-quantaq" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

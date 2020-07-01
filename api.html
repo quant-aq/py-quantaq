@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; py-quantaq 0.4.0-alpha.2 documentation</title>
+  <title>API Reference &mdash; py-quantaq 1.0.0-alpha.0 documentation</title>
   
 
   
@@ -36,7 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Usage" href="usage.html" /> 
+    <link rel="next" title="quantaq.client.ClientBase" href="generated/quantaq.client.ClientBase.html" />
+    <link rel="prev" title="Using this Library" href="usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                0.4.0-alpha.2
+                1.0.0-alpha.0
               </div>
             
           
@@ -87,10 +88,42 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using this Library</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#legacy-api-wrapper">Legacy API Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.client.ClientBase.html">quantaq.client.ClientBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.client.APIClient.html">quantaq.client.APIClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.client.DevelopmentAPIClient.html">quantaq.client.DevelopmentAPIClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.client.StagingAPIClient.html">quantaq.client.StagingAPIClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.client.ProductionAPIClient.html">quantaq.client.ProductionAPIClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.QuantAQAPIClient.html">quantaq.QuantAQAPIClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-endpoints">API Endpoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.users.Users.list.html">quantaq.endpoints.users.Users.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.users.Users.get.html">quantaq.endpoints.users.Users.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.users.Users.update.html">quantaq.endpoints.users.Users.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.list.html">quantaq.endpoints.teams.Teams.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.get.html">quantaq.endpoints.teams.Teams.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.list.html">quantaq.endpoints.devices.Devices.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.get.html">quantaq.endpoints.devices.Devices.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.update.html">quantaq.endpoints.devices.Devices.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.add.html">quantaq.endpoints.devices.Devices.add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.drop.html">quantaq.endpoints.devices.Devices.drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.data.Data.list.html">quantaq.endpoints.data.Data.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.data.Data.get.html">quantaq.endpoints.data.Data.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.list.html">quantaq.endpoints.logs.Logs.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.get.html">quantaq.endpoints.logs.Logs.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.update.html">quantaq.endpoints.logs.Logs.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.drop.html">quantaq.endpoints.logs.Logs.drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.cellular.Cellular.list.html">quantaq.endpoints.cellular.Cellular.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.cellular.Cellular.drop.html">quantaq.endpoints.cellular.Cellular.drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.models.Models.add.html">quantaq.endpoints.models.Models.add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.models.Models.get.html">quantaq.endpoints.models.Models.get</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a></li>
 </ul>
 </li>
 </ul>
@@ -160,257 +193,179 @@
             
   <div class="section" id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="legacy-api-wrapper">
-<h2>Legacy API Wrapper<a class="headerlink" href="#legacy-api-wrapper" title="Permalink to this headline">¶</a></h2>
-<p class="rubric">Legacy API Wrapper</p>
+<div class="section" id="clients">
+<h2>Clients<a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">API Client</p>
+<p>API clients form the basis for making API requests. Typically, you will use the QuantAQAPIClient
+which will connect you directly to the QuantAQ website. If using an enterprise version of
+the QuantAQ API and server, you can build your own API client following the instructions in the
+Usage section.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantaq.legacy.QuantAQ</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.client.ClientBase.html#quantaq.client.ClientBase" title="quantaq.client.ClientBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">client.ClientBase</span></code></a>([api_key, base_url, version])</p></td>
+<td><p>A client for accessing the QuantAQ API.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.client.APIClient.html#quantaq.client.APIClient" title="quantaq.client.APIClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">client.APIClient</span></code></a>(base_url[, api_key, version])</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.client.DevelopmentAPIClient.html#quantaq.client.DevelopmentAPIClient" title="quantaq.client.DevelopmentAPIClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">client.DevelopmentAPIClient</span></code></a>([api_key])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.client.StagingAPIClient.html#quantaq.client.StagingAPIClient" title="quantaq.client.StagingAPIClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">client.StagingAPIClient</span></code></a>([api_key])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.client.ProductionAPIClient.html#quantaq.client.ProductionAPIClient" title="quantaq.client.ProductionAPIClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">client.ProductionAPIClient</span></code></a>([api_key])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.QuantAQAPIClient.html#quantaq.QuantAQAPIClient" title="quantaq.QuantAQAPIClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QuantAQAPIClient</span></code></a></p></td>
+<td><p>alias of <a class="reference internal" href="generated/quantaq.client.ProductionAPIClient.html#quantaq.client.ProductionAPIClient" title="quantaq.client.ProductionAPIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.client.ProductionAPIClient</span></code></a></p></td>
 </tr>
 </tbody>
 </table>
-<span class="target" id="module-quantaq"></span><dl class="py class">
-<dt id="quantaq.QuantAQ">
-<em class="property">class </em><code class="sig-prename descclassname">quantaq.</code><code class="sig-name descname">QuantAQ</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
-<dt id="quantaq.QuantAQ.add_calibration_model">
-<code class="sig-name descname">add_calibration_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.add_calibration_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new calibration model.</p>
-<dl class="simple">
-<dt>params: dict, required</dt><dd><p>A dictionary containing the relevant model upload information including
-the <cite>sn</cite>, <cite>uploaded</cite>, <cite>name</cite>, <cite>comments</cite>, <cite>object_name</cite>, <cite>training_file</cite>, 
-<cite>param</cite>, <cite>metrics</cite>, <cite>model_params</cite>, <cite>tag</cite>, and <cite>name</cite>.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>model: dict</dt><dd><p>A dictionary containing the model information that was uploaded.</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">add_calibration_model</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">())</span>
-</pre></div>
 </div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.add_data">
-<code class="sig-name descname">add_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.add_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new data.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.add_device">
-<code class="sig-name descname">add_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.add_device" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new device.</p>
-<dl class="simple">
-<dt>params: dict, required</dt><dd><p>A dictionary containing all relevant information including the <cite>sn</cite> and <cite>model</cite>.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>device: dict</dt><dd><p>A dictionary containing the device data</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">add_device</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-001&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;arisense_v200&quot;</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;cambridge&quot;</span><span class="p">))</span>
-</pre></div>
+<div class="section" id="api-endpoints">
+<h2>API Endpoints<a class="headerlink" href="#api-endpoints" title="Permalink to this headline">¶</a></h2>
+<p>The following is an extensive list of all available API endpoints. Please check
+the Usage section for instructions on how to use them.</p>
+<p class="rubric">Users Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.users.Users.list.html#quantaq.endpoints.users.Users.list" title="quantaq.endpoints.users.Users.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.users.Users.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return all (available) users.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.users.Users.get.html#quantaq.endpoints.users.Users.get" title="quantaq.endpoints.users.Users.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.users.Users.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return user with id = id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.users.Users.update.html#quantaq.endpoints.users.Users.update" title="quantaq.endpoints.users.Users.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.users.Users.update</span></code></a>(**kwargs)</p></td>
+<td><p>Update the record of a user with id = user_id</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Teams Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.list.html#quantaq.endpoints.teams.Teams.list" title="quantaq.endpoints.teams.Teams.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.teams.Teams.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return a list of teams the account belongs to.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.get.html#quantaq.endpoints.teams.Teams.get" title="quantaq.endpoints.teams.Teams.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.teams.Teams.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return team with id = id.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Devices Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.list.html#quantaq.endpoints.devices.Devices.list" title="quantaq.endpoints.devices.Devices.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.devices.Devices.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return all (available) devices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.get.html#quantaq.endpoints.devices.Devices.get" title="quantaq.endpoints.devices.Devices.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.devices.Devices.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return device with sn = sn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.update.html#quantaq.endpoints.devices.Devices.update" title="quantaq.endpoints.devices.Devices.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.devices.Devices.update</span></code></a>(**kwargs)</p></td>
+<td><p>Update the record of a device with sn = sn</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.add.html#quantaq.endpoints.devices.Devices.add" title="quantaq.endpoints.devices.Devices.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.devices.Devices.add</span></code></a>(**kwargs)</p></td>
+<td><p>Add a new device.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.drop.html#quantaq.endpoints.devices.Devices.drop" title="quantaq.endpoints.devices.Devices.drop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.devices.Devices.drop</span></code></a>(**kwargs)</p></td>
+<td><p>Delete a device.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Data Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.data.Data.list.html#quantaq.endpoints.data.Data.list" title="quantaq.endpoints.data.Data.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.data.Data.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return all data for device with serial number sn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.data.Data.get.html#quantaq.endpoints.data.Data.get" title="quantaq.endpoints.data.Data.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.data.Data.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return a single data point.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Logs Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.list.html#quantaq.endpoints.logs.Logs.list" title="quantaq.endpoints.logs.Logs.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.logs.Logs.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return a list of logs for device with serial number sn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.get.html#quantaq.endpoints.logs.Logs.get" title="quantaq.endpoints.logs.Logs.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.logs.Logs.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return a single log.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.update.html#quantaq.endpoints.logs.Logs.update" title="quantaq.endpoints.logs.Logs.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.logs.Logs.update</span></code></a>(**kwargs)</p></td>
+<td><p>Update a log record.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.logs.Logs.drop.html#quantaq.endpoints.logs.Logs.drop" title="quantaq.endpoints.logs.Logs.drop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.logs.Logs.drop</span></code></a>(**kwargs)</p></td>
+<td><p>Delete the log record.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Cellular Logs Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.cellular.Cellular.list.html#quantaq.endpoints.cellular.Cellular.list" title="quantaq.endpoints.cellular.Cellular.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.cellular.Cellular.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return a list of cellular logs for a device with  serial number sn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.cellular.Cellular.drop.html#quantaq.endpoints.cellular.Cellular.drop" title="quantaq.endpoints.cellular.Cellular.drop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.cellular.Cellular.drop</span></code></a>(**kwargs)</p></td>
+<td><p>Delete a cellular log record.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Models Endpoints</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.models.Models.add.html#quantaq.endpoints.models.Models.add" title="quantaq.endpoints.models.Models.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.models.Models.add</span></code></a>(**kwargs)</p></td>
+<td><p>Add a new calibration model for device with sn = serial number.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.models.Models.get.html#quantaq.endpoints.models.Models.get" title="quantaq.endpoints.models.Models.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.models.Models.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return the calibration models for device with sn = serial number.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.delete_data">
-<code class="sig-name descname">delete_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.delete_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a data point.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN</p>
-</dd>
-<dt>id: int, required</dt><dd><p>The id of the individual data point.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>success: dict</dt><dd><p>A dictionary containing the success or failure of the request.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.delete_device">
-<code class="sig-name descname">delete_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.delete_device" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a device.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">delete_device</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN001&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_account">
-<code class="sig-name descname">get_account</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_account" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the account information associated with the API key being used.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_account</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_calibration_models">
-<code class="sig-name descname">get_calibration_models</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_calibration_models" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the calibration model information for a given device.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device serial number.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>info: dict</dt><dd><p>A dictionary containing calibration meta information for all models.</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_calibration_models</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-001&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_cell_logs">
-<code class="sig-name descname">get_cell_logs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="n">return_type</span><span class="o">=</span><span class="default_value">'json'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_cell_logs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of cellular logs for device SN.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN you would like data for</p>
-</dd>
-<dt>return_type: string, required</dt><dd><p>Return a list of json objects if set to ‘json’, or a dataframe if set to ‘dataframe’</p>
-</dd>
-<dt>params: dict, optional</dt><dd><p>Query based on any column or parameter - see utils for further discussion.</p>
-</dd>
-</dl>
-<p>list or dataframe</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_data">
-<code class="sig-name descname">get_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="n">return_type</span><span class="o">=</span><span class="default_value">'json'</span></em>, <em class="sig-param"><span class="n">final_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of data for a given device.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN you would like data for</p>
-</dd>
-<dt>return_type: string, required</dt><dd><p>Return a list of json objects if set to ‘json’, or a dataframe if set to ‘dataframe’</p>
-</dd>
-<dt>final_data: bool</dt><dd><p>If True, return the cleand/final data; if False, return the raw data (requires necessary permissions)</p>
-</dd>
-<dt>id: int</dt><dd><p>You can retrieve an individual data point by its ID.</p>
-</dd>
-<dt>params: dict, optional</dt><dd><p>Query based on any column or parameter - see utils for further discussion.</p>
-</dd>
-</dl>
-<p>list or dataframe</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s1">&#39;&lt;sn&gt;&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">25</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_device">
-<code class="sig-name descname">get_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_device" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a single device.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_device</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN001&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_devices">
-<code class="sig-name descname">get_devices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">return_type</span><span class="o">=</span><span class="default_value">'json'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_devices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of devices.</p>
-<dl class="simple">
-<dt>return_type: string, required</dt><dd><p>Return a list of json objects if set to ‘json’, or a dataframe if set to ‘dataframe’</p>
-</dd>
-<dt>params: dict, optional</dt><dd><p>Query based on any column or parameter - see utils for further discussion.</p>
-</dd>
-</dl>
-<p>list or dataframe</p>
-<p>Get a list of all devices:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_devices</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Get a list of all devices as a dataframe:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_devices</span><span class="p">(</span><span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Get a list of all devices, but limit to just 2 devices:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">get_devices</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.get_logs">
-<code class="sig-name descname">get_logs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="n">return_type</span><span class="o">=</span><span class="default_value">'json'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.get_logs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of logs for device SN.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN you would like data for</p>
-</dd>
-<dt>return_type: string, required</dt><dd><p>Return a list of json objects if set to ‘json’, or a dataframe if set to ‘dataframe’</p>
-</dd>
-<dt>params: dict, optional</dt><dd><p>Query based on any column or parameter - see utils for further discussion.</p>
-</dd>
-</dl>
-<p>list or dataframe</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.update_data">
-<code class="sig-name descname">update_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.update_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update a data record. This only updates the raw data records.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN</p>
-</dd>
-<dt>id: int, required</dt><dd><p>The id of the individual data point.</p>
-</dd>
-<dt>params: dict, required</dt><dd><p>A dictionary containing the information to update.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>data: dict</dt><dd><p>A dictionary containing the data for a given point.</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN000-001&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">2121</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">43.1</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quantaq.QuantAQ.update_device">
-<code class="sig-name descname">update_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.QuantAQ.update_device" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update a device.</p>
-<dl class="simple">
-<dt>sn: string, required</dt><dd><p>The device SN</p>
-</dd>
-<dt>params: dict, required</dt><dd><p>A dictionary containing the information to update.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>device: dict</dt><dd><p>A dictionary containing the device data</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api</span> <span class="o">=</span> <span class="n">quantaq</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">QuantAQ</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">api</span><span class="o">.</span><span class="n">update_device</span><span class="p">(</span><span class="n">sn</span><span class="o">=</span><span class="s2">&quot;SN001&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;cambridge&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Utils</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -422,8 +377,10 @@ the <cite>sn</cite>, <cite>uploaded</cite>, <cite>name</cite>, <cite>comments</c
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="generated/quantaq.client.ClientBase.html" class="btn btn-neutral float-right" title="quantaq.client.ClientBase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Using this Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

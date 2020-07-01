@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to py-quantaq’s documentation! &mdash; py-quantaq 0.4.0-alpha.2 documentation</title>
+  <title>py-quantaq &mdash; py-quantaq 1.0.0-alpha.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" /> 
+    <link rel="next" title="Using this Library" href="usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.4.0-alpha.2
+                1.0.0-alpha.0
               </div>
             
           
@@ -86,9 +86,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using this Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 </ul>
 
@@ -136,7 +136,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to py-quantaq’s documentation!</li>
+      <li>py-quantaq</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,22 +155,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-py-quantaq-s-documentation">
-<h1>Welcome to py-quantaq’s documentation!<a class="headerlink" href="#welcome-to-py-quantaq-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Complete documentation with examples are coming soon!</p>
+  <div class="section" id="py-quantaq">
+<h1>py-quantaq<a class="headerlink" href="#py-quantaq" title="Permalink to this headline">¶</a></h1>
+<p><cite>py-quantaq</cite> is built to make it easy to access the QuantAQ REST API using Python. The
+most recent versions of the library can be found on PyPI and supports applications written
+using Python 3.6 and later.</p>
+</div>
+<div class="section" id="install-the-library">
+<h1>Install the Library<a class="headerlink" href="#install-the-library" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to install the library is from PyPI using <cite>pip</cite>, a package manager for Python:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="o">[</span>-U<span class="o">]</span> py-quantaq
+</pre></div>
+</div>
+<p>Or, you can add the library to your project using <cite>poetry</cite>, an alternative python project
+management tool:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ poetry add py-quantaq
+</pre></div>
+</div>
+<p>You can also clone the repository locally and build from source using poetry:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/quant-aq/py-quantaq.git
+$ <span class="nb">cd</span> py-quantaq/
+$ poetry install
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Both the package you’re referencing and any dependencies <strong>must be
+installed</strong>.</p>
+</div>
+</div>
+<div class="section" id="running-tests">
+<h1>Running Tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h1>
+<p>Testing is done automagically with each new build. However, you can also run tests
+locally if you have cloned the library. To run tests locally using <cite>pytest</cite>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ poetry run pytest tests
+</pre></div>
+</div>
+<p>To run them with coverage:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ poetry run pytest tests --cov<span class="o">=</span>quantaq --cov-report term-missing
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-contributions">
+<h1>Making Contributions<a class="headerlink" href="#making-contributions" title="Permalink to this headline">¶</a></h1>
+<p>All development takes place on GitHub. Please see the GitHub repository
+for instructions.</p>
+</div>
+<div class="section" id="reporting-bugs-and-other-issues">
+<h1>Reporting Bugs and Other Issues<a class="headerlink" href="#reporting-bugs-and-other-issues" title="Permalink to this headline">¶</a></h1>
+<p>Any bugs, issues, or questions can be reported using the GitHub Issues tracker. Please
+provide as much information as possible that will make it easier to solve/fix the problem.
+Useful information to include would be the operating system, python version, and version
+of the opcsim library as well as any dependencies. If there are issues with graphics,
+screenshots are very helpful!</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#overview-of-available-commands">Overview of Available Commands</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#legacy-api-wrapper">Legacy API Wrapper</a></li>
-</ul>
-</li>
-</ul>
 </div>
 </div>
 
@@ -182,7 +220,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Using this Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
