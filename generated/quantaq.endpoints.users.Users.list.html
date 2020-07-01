@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>quantaq.endpoints.users.Users.list &mdash; py-quantaq 1.0.0 documentation</title>
+  <title>quantaq.endpoints.users.Users.list &mdash; py-quantaq 1.0.1 documentation</title>
   
 
   
@@ -35,9 +35,7 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="quantaq.endpoints.users.Users.get" href="quantaq.endpoints.users.Users.get.html" />
-    <link rel="prev" title="quantaq.QuantAQAPIClient" href="quantaq.QuantAQAPIClient.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -61,7 +59,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.0.1
               </div>
             
           
@@ -87,37 +85,10 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Using this Library</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../api.html#clients">Clients</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../api.html#api-endpoints">API Endpoints</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">quantaq.endpoints.users.Users.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.users.Users.get.html">quantaq.endpoints.users.Users.get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.users.Users.update.html">quantaq.endpoints.users.Users.update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.teams.Teams.list.html">quantaq.endpoints.teams.Teams.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.teams.Teams.get.html">quantaq.endpoints.teams.Teams.get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.list.html">quantaq.endpoints.devices.Devices.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.get.html">quantaq.endpoints.devices.Devices.get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.update.html">quantaq.endpoints.devices.Devices.update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.add.html">quantaq.endpoints.devices.Devices.add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.drop.html">quantaq.endpoints.devices.Devices.drop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.data.Data.list.html">quantaq.endpoints.data.Data.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.data.Data.get.html">quantaq.endpoints.data.Data.get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.list.html">quantaq.endpoints.logs.Logs.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.get.html">quantaq.endpoints.logs.Logs.get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.update.html">quantaq.endpoints.logs.Logs.update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.drop.html">quantaq.endpoints.logs.Logs.drop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.cellular.Cellular.list.html">quantaq.endpoints.cellular.Cellular.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.cellular.Cellular.drop.html">quantaq.endpoints.cellular.Cellular.drop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.models.Models.add.html">quantaq.endpoints.models.Models.add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.models.Models.get.html">quantaq.endpoints.models.Models.get</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#utilities">Utilities</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 </ul>
 
             
@@ -164,8 +135,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../api.html">API Reference</a> &raquo;</li>
-        
       <li>quantaq.endpoints.users.Users.list</li>
     
     
@@ -187,28 +156,6 @@
             
   <div class="section" id="quantaq-endpoints-users-users-list">
 <h1>quantaq.endpoints.users.Users.list<a class="headerlink" href="#quantaq-endpoints-users-users-list" title="Permalink to this headline">¶</a></h1>
-<dl class="py method">
-<dt id="quantaq.endpoints.users.Users.list">
-<code class="sig-prename descclassname">Users.</code><code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.endpoints.users.Users.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return all (available) users.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>limit</strong> (<em>str</em>) – Limit the number of results returned</p></li>
-<li><p><strong>sort</strong> (<em>str</em>) – Sort the results by a specific attribute</p></li>
-<li><p><strong>filter</strong> (<em>str</em>) – Filter the query</p></li>
-<li><p><strong>per_page</strong> (<em>int</em>) – Define the number of results to return per page</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of users.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of dict</p>
-</dd>
-</dl>
-</dd></dl>
-
 </div>
 
 
@@ -216,15 +163,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="quantaq.endpoints.users.Users.get.html" class="btn btn-neutral float-right" title="quantaq.endpoints.users.Users.get" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="quantaq.QuantAQAPIClient.html" class="btn btn-neutral float-left" title="quantaq.QuantAQAPIClient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

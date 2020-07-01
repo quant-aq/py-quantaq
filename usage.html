@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using this Library &mdash; py-quantaq 1.0.0 documentation</title>
+  <title>Using this Library &mdash; py-quantaq 1.0.1 documentation</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.0.1
               </div>
             
           
@@ -217,8 +217,8 @@ a client as seen below.</p>
 </div>
 <div class="section" id="setup-and-authentication">
 <h2>Setup and Authentication<a class="headerlink" href="#setup-and-authentication" title="Permalink to this headline">¶</a></h2>
-<p>There are several clients that can be used, with <a class="reference internal" href="generated/quantaq.QuantAQAPIClient.html#quantaq.QuantAQAPIClient" title="quantaq.QuantAQAPIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.QuantAQAPIClient</span></code></a>
-being your best bet. You can also create your own from <a class="reference internal" href="generated/quantaq.client.APIClient.html#quantaq.client.APIClient" title="quantaq.client.APIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.client.APIClient</span></code></a> if
+<p>There are several clients that can be used, with <code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.QuantAQAPIClient</span></code>
+being your best bet. You can also create your own from <code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.client.APIClient</span></code> if
 you are using an enterprise server at a different domain.</p>
 <p>To initiate the client (assuming you have set your API key as an environment variable):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">quantaq</span>
@@ -241,7 +241,7 @@ domain or API version, you can do so by creating a new class:</p>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;https://custom.domain/api&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;v1&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can then use it just as you would the <a class="reference internal" href="generated/quantaq.QuantAQAPIClient.html#quantaq.QuantAQAPIClient" title="quantaq.QuantAQAPIClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.QuantAQAPIClient</span></code></a> class:</p>
+<p>You can then use it just as you would the <code class="xref py py-class docutils literal notranslate"><span class="pre">quantaq.QuantAQAPIClient</span></code> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">CustomAPIClient</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -288,7 +288,7 @@ with the id as an argument:</p>
 </div>
 <div class="section" id="get-a-single-device">
 <h3>Get a Single Device<a class="headerlink" href="#get-a-single-device" title="Permalink to this headline">¶</a></h3>
-<p>You can also use the <a class="reference internal" href="generated/quantaq.utils.to_dataframe.html#quantaq.utils.to_dataframe" title="quantaq.utils.to_dataframe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">quantaq.utils.to_dataframe()</span></code></a> utility
+<p>You can also use the <code class="xref py py-meth docutils literal notranslate"><span class="pre">quantaq.utils.to_dataframe()</span></code> utility
 function to convert the list to a dataframe:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">quantaq.utils</span> <span class="kn">import</span> <span class="n">to_dataframe</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span> <span class="o">=</span> <span class="n">to_dataframe</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
