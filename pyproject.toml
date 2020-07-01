@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-quantaq"
-version = "1.0.0"
+version = "1.0.1"
 description = "API wrapper and utils for QuantAQ, Inc."
 authors = ["David H Hagan <david.hagan@quant-aq.com>"]
 license = "Apache License 2.0"
