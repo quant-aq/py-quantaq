@@ -4,133 +4,77 @@ import quantaq
 import os
 import sys
 import pandas as pd
+import pytest
+
+from quantaq.exceptions import QuantAQAPIException
 
 # add additional tests using https://github.com/getsentry/responses
 
 @responses.activate
-def test_simple():
+def test_base(monkeypatch):
     responses.add(responses.GET, "https://api.quant-aq.com/device-api/v1/account", 
         json={"status": "success"}, status=200)
 
     # setup the API
     token = "A124324"
-    api = quantaq.legacy.QuantAQ(token=token)
+    client = quantaq.client.APIClient("https://api.quant-aq.com/device-api/", api_key=token, version="v1")
 
-    resp = api.get_account()
+    # make sure you can init the client
+    assert client.api_key == token
+    assert client.base_url == "https://api.quant-aq.com/device-api/"
+    assert client.version == "v1"
 
-    print (resp)
+    # make sure client init fails with no token
+    monkeypatch.setenv("QUANTAQ_APIKEY", "")
+    with pytest.raises(QuantAQAPIException):
+        client = quantaq.client.APIClient("https://test.com")
 
-# class SetupTestCase(unittest.TestCase):
-#     def setUp(self):
-#         # source the local dev token (only works on david's laptop)
-#         self.token = os.environ.get("QUANTAQ_APIKEY_DEV")
-#         self.api = quantaq.legacy.QuantAQ(token=self.token)
+    # make sure url building works
+    assert client.url("test") == "https://api.quant-aq.com/device-api/v1/test"
 
-#         # if testing on david's MBP, change the endpoint
-#         if sys.platform == "darwin":
-#             self.api.endpoint = "http://localhost:5000/api/"
+    # test the development api client
+    client = quantaq.client.DevelopmentAPIClient(api_key="development")
+    assert client.api_key == "development"
+    assert client.base_url == "http://localhost:5000/device-api/"
+    assert client.version == "v1"
+
+    # test the staging api client
+    client = quantaq.client.StagingAPIClient(api_key="staging")
+    assert client.api_key == "staging"
+    assert client.base_url == "https://dev.quant-aq.com/device-api/"
+    assert client.version == "v1"
+
+    # test the production api client
+    client = quantaq.client.ProductionAPIClient(api_key="prod")
+    assert client.api_key == "prod"
+    assert client.base_url == "https://api.quant-aq.com/device-api/"
+    assert client.version == "v1"
+
+@responses.activate
+def test_whoami():
+    responses.add(responses.GET, "https://api.quant-aq.com/device-api/v1/account", 
+        status=200, 
+        json={
+            "confirmed": True,
+            "email": "david@davidhhagan.com",
+            "first_name": None,
+            "id": 1,
+            "is_administrator": True,
+            "last_name": None,
+            "last_seen": "2020-06-27T03:31:39.722291",
+            "member_since": "2020-06-05T22:05:24.612347",
+            "role": 5,
+            "username": "david"
+            }
+        )
     
-#     def tearDown(self):
-#         pass
+    client = quantaq.client.APIClient(
+        "https://api.quant-aq.com/device-api/", 
+        api_key="a123", version="v1")
 
-    # def test_account(self):
-    #     mngr = self.api
-    #     self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
+    # test the GET verb
+    resp = client.whoami()
 
-    #     # return the account as json
-    #     account = mngr.get_account()
-    #     self.assertIsNotNone(account["confirmed"])
-    #     self.assertIsNotNone(account["username"])
-    #     self.assertIsNotNone(account["email"])
-    
-    # def test_devices(self):
-    #     mngr = self.api
-    #     self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
-
-    #     # get devices as a list
-    #     devices = mngr.get_devices()
-    #     self.assertTrue(type(devices), list)
-
-    #     # get devices as a dataframe
-    #     devices = mngr.get_devices(return_type='dataframe')
-    #     self.assertIsInstance(devices, pd.DataFrame)
-
-    #     # try limiting to just one result
-    #     devices = mngr.get_devices(params=dict(limit=1))
-    #     self.assertEqual(len(devices), 1)
-
-    #     # get just one device
-    #     device = mngr.get_device(sn=devices[0]["sn"])
-    #     self.assertIsNotNone(device["sn"])
-    #     self.assertIsNotNone(device["url"])
-
-    #     # update a device
-    #     old_city = device["city"]
-    #     new_city = "New City"
-
-    #     device = mngr.update_device(sn=device["sn"], params=dict(city=new_city))
-    #     self.assertEqual(device["city"], new_city)
-
-    #     with self.assertRaises(NotImplementedError):
-    #         mngr.add_device(params=dict())
-        
-    #     with self.assertRaises(NotImplementedError):
-    #         mngr.delete_device(sn="")
-
-    # def test_calmodels(self):
-    #    pass
-    
-    # def test_data(self):
-    #     mngr = self.api
-    #     self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
-
-    #     # get the devices
-    #     devices = mngr.get_devices()
-    #     sn = devices[0]["sn"]
-
-    #     # get a list of all cleaned data in json format
-    #     data = mngr.get_data(sn=sn, return_type='json', final_data=True)
-    #     self.assertTrue(type(data), list)
-
-    #     # get a list of all cleaned data in dataframe format
-    #     data = mngr.get_data(sn=sn, return_type='dataframe', final_data=True)
-    #     self.assertIsInstance(data, pd.DataFrame)
-
-    #     # get a list of all raw data in json format
-    #     data = mngr.get_data(sn=sn, return_type='json', final_data=False)
-    #     self.assertTrue(type(data), list)
-
-    #     # get a list of all raw data as a dataframe
-    #     data = mngr.get_data(sn=sn, return_type='dataframe', final_data=False)
-    #     self.assertIsInstance(data, pd.DataFrame)
-
-    #     with self.assertRaises(NotImplementedError):
-    #         mngr.add_data()
-
-    #     with self.assertRaises(NotImplementedError):
-    #         mngr.update_data("", 1)
-
-    #     with self.assertRaises(NotImplementedError):
-    #         mngr.delete_data("", 1)
-
-    # def test_logs(self):
-    #     mngr = self.api
-    #     self.assertEqual(mngr.endpoint, "http://localhost:5000/api/")
-
-    #     # get a device
-    #     devices = mngr.get_devices()
-    #     sn = devices[0]["sn"]
-
-    #     # get a list of all logs in json format
-    #     data = mngr.get_logs(sn=sn, return_type='json')
-    #     self.assertTrue(type(data), list)
-
-    #     # get a list of all cleaned data in dataframe format
-    #     data = mngr.get_logs(sn=sn, return_type='dataframe')
-    #     self.assertIsInstance(data, pd.DataFrame)
-    
-    # def test_metadata(self):
-    #     pass
-    
-    # def test_users(self):
-        # pass
+    assert resp["confirmed"] == True
+    assert type(resp) == dict
+    assert len(responses.calls) == 1
