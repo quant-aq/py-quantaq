@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from getversion import get_module_version
+from importlib_metadata import version
 import quantaq
 
-__version__, _ = get_module_version(quantaq)
+__version__ = version("py-quantaq")
 
 from .client import (
     ClientBase, 

@@ -86,18 +86,6 @@ version = "0.16"
 
 [[package]]
 category = "main"
-description = "Get the version number of any python module or package, reliably."
-name = "getversion"
-optional = false
-python-versions = "*"
-version = "1.0.1"
-
-[package.dependencies]
-setuptools-scm = "*"
-stdlib-list = "*"
-
-[[package]]
-category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -351,20 +339,6 @@ tests = ["coverage (>=3.7.1,<5.0.0)", "pytest-cov", "pytest-localserver", "flake
 
 [[package]]
 category = "main"
-description = "the blessed package to manage your versions by scm tags"
-name = "setuptools-scm"
-optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-version = "4.1.2"
-
-[package.dependencies]
-setuptools = "*"
-
-[package.extras]
-toml = ["toml"]
-
-[[package]]
-category = "main"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -497,17 +471,6 @@ lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
-category = "main"
-description = "A list of Python Standard Libraries (2.6-7, 3.2-8)."
-name = "stdlib-list"
-optional = false
-python-versions = "*"
-version = "0.7.0"
-
-[package.extras]
-develop = ["sphinx"]
-
-[[package]]
 category = "dev"
 description = "Python Library for Tom's Obvious, Minimal Language"
 name = "toml"
@@ -550,7 +513,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "fa841d5eebead14924a4a22e57d49943bf3bc770a7d506c3a71ae5567ef5e311"
+content-hash = "471730548df68a9bd040612e8ffb58d312ce41733569bec2ddba9542005801e9"
 python-versions = "^3.6.1"
 
 [metadata.files]
@@ -618,10 +581,6 @@ coverage = [
 docutils = [
     {file = "docutils-0.16-py2.py3-none-any.whl", hash = "sha256:0c5b78adfbf7762415433f5515cd5c9e762339e23369dbe8000d84a4bf4ab3af"},
     {file = "docutils-0.16.tar.gz", hash = "sha256:c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"},
-]
-getversion = [
-    {file = "getversion-1.0.1-py2.py3-none-any.whl", hash = "sha256:77921a5d56c88b049717fefad9713fd48df91919aa12c0f307659f50c8c36b5a"},
-    {file = "getversion-1.0.1.tar.gz", hash = "sha256:49831ecb68be5403387a29b5d52ee26faff5d979d9fa5aa99b0f6a86642852be"},
 ]
 idna = [
     {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
@@ -776,16 +735,6 @@ responses = [
     {file = "responses-0.10.15-py2.py3-none-any.whl", hash = "sha256:af94d28cdfb48ded0ad82a5216616631543650f440334a693479b8991a6594a2"},
     {file = "responses-0.10.15.tar.gz", hash = "sha256:7bb697a5fedeb41d81e8b87f152d453d5cab42dcd1691b6a7d6097e94d33f373"},
 ]
-setuptools-scm = [
-    {file = "setuptools_scm-4.1.2-py2.7.egg", hash = "sha256:b42c150c34d6120babf3646abd7513e032be2e230b3d2034f27404c65aa0c977"},
-    {file = "setuptools_scm-4.1.2-py2.py3-none-any.whl", hash = "sha256:69258e2eeba5f7ce1ed7a5f109519580fa3578250f8e4d6684859f86d1b15826"},
-    {file = "setuptools_scm-4.1.2-py3.5.egg", hash = "sha256:09c659d1d6680811c43f476a33c6d3d9872416580786e96bd29ea03e6a818e41"},
-    {file = "setuptools_scm-4.1.2-py3.6.egg", hash = "sha256:731550a27e3901ee501c3bf99140b5436b8eeba341a9d19911cf364b8d573293"},
-    {file = "setuptools_scm-4.1.2-py3.7.egg", hash = "sha256:efc928d6a64162c88cdc85fa4b84adfbd6dbf9f9b04319bc495eb16dcfaae00a"},
-    {file = "setuptools_scm-4.1.2-py3.8.egg", hash = "sha256:eaaec16b7af25c5f532b5af2332213bb6223d15cca4518f6dbc4c055641c86fd"},
-    {file = "setuptools_scm-4.1.2-py3.9.egg", hash = "sha256:892e63b4983f9e30f9e8bf89ad03d2a02a47e6e5ced09b03ae6fe952ade8a579"},
-    {file = "setuptools_scm-4.1.2.tar.gz", hash = "sha256:a8994582e716ec690f33fec70cca0f85bd23ec974e3f783233e4879090a7faa8"},
-]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
@@ -825,10 +774,6 @@ sphinxcontrib-qthelp = [
 sphinxcontrib-serializinghtml = [
     {file = "sphinxcontrib-serializinghtml-1.1.4.tar.gz", hash = "sha256:eaa0eccc86e982a9b939b2b82d12cc5d013385ba5eadcc7e4fed23f4405f77bc"},
     {file = "sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl", hash = "sha256:f242a81d423f59617a8e5cf16f5d4d74e28ee9a66f9e5b637a18082991db5a9a"},
-]
-stdlib-list = [
-    {file = "stdlib-list-0.7.0.tar.gz", hash = "sha256:66c1c1724a12667cdb35be9f43181c3e6646c194e631efaaa93c1f2c2c7a1f7f"},
-    {file = "stdlib_list-0.7.0-py3-none-any.whl", hash = "sha256:0ed79a0badf4f666aad046cde364ccac68ca1438a211ec74b0153e0eb5642a3e"},
 ]
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
