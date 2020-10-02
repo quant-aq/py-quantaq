@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-from importlib_metadata import version
+try:
+    from importlib_metadata import version
+except ImportError:
+    from importlib.metadata import version
+    
 import quantaq
 
 __version__ = version("py-quantaq")
