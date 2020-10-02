@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>quantaq.endpoints.models.Models.add &mdash; py-quantaq 1.0.1 documentation</title>
+  <title>quantaq.endpoints.models.Models.add &mdash; py-quantaq 1.0.2-alpha.0 documentation</title>
   
 
   
@@ -35,7 +35,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="quantaq.endpoints.models.Models.get" href="quantaq.endpoints.models.Models.get.html" />
+    <link rel="prev" title="quantaq.endpoints.cellular.Cellular.drop" href="quantaq.endpoints.cellular.Cellular.drop.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,7 +61,7 @@
             
             
               <div class="version">
-                1.0.1
+                1.0.2-alpha.0
               </div>
             
           
@@ -85,10 +87,37 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Using this Library</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#clients">Clients</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#api-endpoints">API Endpoints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.users.Users.list.html">quantaq.endpoints.users.Users.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.users.Users.get.html">quantaq.endpoints.users.Users.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.users.Users.update.html">quantaq.endpoints.users.Users.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.teams.Teams.list.html">quantaq.endpoints.teams.Teams.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.teams.Teams.get.html">quantaq.endpoints.teams.Teams.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.list.html">quantaq.endpoints.devices.Devices.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.get.html">quantaq.endpoints.devices.Devices.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.update.html">quantaq.endpoints.devices.Devices.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.add.html">quantaq.endpoints.devices.Devices.add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.drop.html">quantaq.endpoints.devices.Devices.drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.data.Data.list.html">quantaq.endpoints.data.Data.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.data.Data.get.html">quantaq.endpoints.data.Data.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.list.html">quantaq.endpoints.logs.Logs.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.get.html">quantaq.endpoints.logs.Logs.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.update.html">quantaq.endpoints.logs.Logs.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.drop.html">quantaq.endpoints.logs.Logs.drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.cellular.Cellular.list.html">quantaq.endpoints.cellular.Cellular.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.cellular.Cellular.drop.html">quantaq.endpoints.cellular.Cellular.drop</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">quantaq.endpoints.models.Models.add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.models.Models.get.html">quantaq.endpoints.models.Models.get</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#utilities">Utilities</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -135,6 +164,8 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="../api.html">API Reference</a> &raquo;</li>
+        
       <li>quantaq.endpoints.models.Models.add</li>
     
     
@@ -156,6 +187,32 @@
             
   <div class="section" id="quantaq-endpoints-models-models-add">
 <h1>quantaq.endpoints.models.Models.add<a class="headerlink" href="#quantaq-endpoints-models-models-add" title="Permalink to this headline">¶</a></h1>
+<dl class="py method">
+<dt id="quantaq.endpoints.models.Models.add">
+<code class="sig-prename descclassname">Models.</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; list<a class="headerlink" href="#quantaq.endpoints.models.Models.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new calibration model for device with sn = serial number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sn</strong> (<em>str</em>) – The device serial number (required)</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the model</p></li>
+<li><p><strong>object_name</strong> (<em>str</em>) – The object name of the model itself</p></li>
+<li><p><strong>training_file</strong> (<em>str</em>) – The object name of the training data file</p></li>
+<li><p><strong>param</strong> (<em>str</em>) – The parameter [co, co2, no, no2, o3, so2, voc, pm1, pm25, pm10]</p></li>
+<li><p><strong>error</strong> (<em>dict</em>) – Training error information</p></li>
+<li><p><strong>model</strong> (<em>dict</em>) – Model overview and details</p></li>
+<li><p><strong>calibration</strong> (<em>dict</em>) – Calibration and training detials</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Model information</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -163,6 +220,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quantaq.endpoints.models.Models.get.html" class="btn btn-neutral float-right" title="quantaq.endpoints.models.Models.get" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quantaq.endpoints.cellular.Cellular.drop.html" class="btn btn-neutral float-left" title="quantaq.endpoints.cellular.Cellular.drop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
