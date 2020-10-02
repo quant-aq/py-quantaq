@@ -3,6 +3,8 @@ on:
   create:
     tags:
       - v*
+  schedule:
+    - cron: '0 3 * * *' # run every night at 3AM
 
 jobs:
     build-docs:
