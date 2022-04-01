@@ -17,7 +17,10 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Install poetry
-        uses: dschep/install-poetry-action@v1.3
+        uses: snok/install-poetry@v1.1.2
+        with:
+          version: 1.1.5
+          virtualenvs-create: true
       
       - name: Install dependencies
         run: poetry install
