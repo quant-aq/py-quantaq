@@ -38,6 +38,29 @@ class Data(Domain):
 
         return self.client.requests(endpoint, **kwargs)
 
+    def bydate(self, **kwargs) -> list:
+        """Return all data for a device with serial number <sn> 
+        on date <date>.
+
+        :param str sn: The device serial number
+        :param str date: The date to retrieve data for in YYYY-MM-DD format (all GMT).
+        :param bool raw: Return the raw (not final), default is False
+
+        :returns: Data
+        :rtype: list of dicts
+        """
+        sn = kwargs.pop("sn")
+        date = kwargs.pop("date")
+        raw = kwargs.pop("raw")
+
+        endpoint = "devices/" + sn + "/data-by-date/"
+        if raw:
+            endpoint += "raw/"
+        
+        endpoint += date + "/"
+
+        return self.client.requests(endpoint, **kwargs)
+
     def get(self, **kwargs) -> dict:
         """Return a single data point.
 
