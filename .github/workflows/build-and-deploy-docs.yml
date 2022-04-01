@@ -2,7 +2,7 @@ name: docs/gh-pages
 on:
   create:
     tags:
-      - v*
+      - *
   schedule:
     - cron: '0 3 * * *' # run every night at 3AM
 
@@ -20,7 +20,10 @@ jobs:
                 python-version: 3.8
             
             - name: Install poetry
-              uses: dschep/install-poetry-action@v1.3
+              uses: snok/install-poetry@v1.1.2
+              with:
+                version: 1.1.5
+                virtualenvs-create: true
             
             - name: Install dependencies
               run: poetry install
