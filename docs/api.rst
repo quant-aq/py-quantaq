@@ -66,6 +66,7 @@ the Usage section for instructions on how to use them.
     :toctree: generated/
 
     endpoints.data.Data.list
+    endpoints.data.Data.bydate
     endpoints.data.Data.get
 
 

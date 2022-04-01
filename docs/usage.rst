@@ -166,7 +166,7 @@ between two dates:
 .. code-block:: python
 
     >>> from quantaq.utils import to_dataframe
-    >>> data = client.data.list(sn="SN000-000", start="2020-01-01", stop="2020-01-03")
+    >>> data = client.data.list(sn="SN000-000", start="2020-01-01 00:00", stop="2020-01-01 03:30")
     >>> data = to_dataframe(data)
     >>> print (data)
 
@@ -174,6 +174,11 @@ between two dates:
 While you don't necessarily have to define either a start or stop point, it is highly
 recommended. If you don't, the response can take some time as it is iterating through 
 a large number of API requests to retrieve the paginated results.
+
+.. tip::
+
+   It is best to use this endpoint for querying less than one day of data. If trying to return 
+   large chunks of data, use the `bydate` function detailed below.
 
 
 List All Raw Data for a Device
@@ -186,6 +191,38 @@ in your request:
 
     >>> data = client.data.list(sn="SN000-000", start="2020-01-01", stop="2020-01-03", raw=True)
     >>> print (data)
+
+
+Retrieve Large Chunks of Data for a Device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. attention::
+
+    This endpoint was added with release 1.1.0 on March 31st, 2022.
+
+
+To retrieve large chunks of data, it is best to use the `bydate` function.
+
+.. code-block:: python
+
+    >>> data = client.data.bydate(sn='SN000-000', date='2022-01-01')
+    >>> data = to_dataframe(data)
+    >>> print (data)
+
+This will retrieve all available all available data for a given device on a given date. To 
+get data for many dates, simply iterate over all of the dates:
+
+.. code-block:: python
+
+    >>> import pandas as pd
+    >>> df = []
+    >>> for each in pd.date_range(start='2022-01-01', end='2022-01-15'):
+    >>>     df.append(
+    >>>         to_dataframe(client.data.bydate(sn='SN000-000', date=str(each.date())))
+    >>>     )
+    >>> df = pd.concat(df)
+    >>> print (df.info())
+
 
 
 Limit Your Data Requests
