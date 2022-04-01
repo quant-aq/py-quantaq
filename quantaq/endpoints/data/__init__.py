@@ -51,7 +51,7 @@ class Data(Domain):
         """
         sn = kwargs.pop("sn")
         date = kwargs.pop("date")
-        raw = kwargs.pop("raw")
+        raw = kwargs.pop("raw", False)
 
         endpoint = "devices/" + sn + "/data-by-date/"
         if raw:
@@ -59,7 +59,7 @@ class Data(Domain):
         
         endpoint += date + "/"
 
-        return self.client.requests(endpoint, **kwargs)
+        return self.client.requests(endpoint)
 
     def get(self, **kwargs) -> dict:
         """Return a single data point.
