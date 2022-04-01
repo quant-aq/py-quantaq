@@ -32,6 +32,7 @@ jobs:
             
             - name: build docs
               run: |
+                source $HOME/.poetry/env
                 cd docs
                 make clean
                 make html
