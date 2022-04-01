@@ -2,7 +2,7 @@ name: docs/gh-pages
 on:
   create:
     tags:
-      - *
+      - '*'
   schedule:
     - cron: '0 3 * * *' # run every night at 3AM
 

@@ -2,7 +2,7 @@ name: build & release
 on:
   create:
     tags:
-      - *
+      - '*'
 
 jobs:
     build-n-publish:
