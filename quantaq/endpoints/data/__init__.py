@@ -81,3 +81,24 @@ class Data(Domain):
         endpoint += str(id)
 
         return self.client.requests(endpoint)
+
+    def update(self, **kwargs) -> dict:
+        """Update a single data point.
+
+        :param str sn: The device serial number
+        :param int id: The id of the data point
+        :param bool raw: Return the raw (not final), default is False
+
+        :returns: Data information
+        :rtype: dict
+        """
+        sn = kwargs.pop("sn")
+        id = kwargs.pop("id")
+        raw = kwargs.pop("raw", False)
+
+        endpoint = "devices/" + sn + '/data/'
+        if raw:
+            endpoint += "raw/"
+        endpoint += str(id)
+
+        return self.client.request(endpoint, verb=PUT, **kwargs)
