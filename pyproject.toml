@@ -23,7 +23,7 @@ urllib3 = ">=1.26.5"
 numpy = ">=1.22"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.4.3"
+pytest = "^7.1"
 pytest-coverage = "^0.0"
 sphinx = "^3.1.1"
 toml = "^0.10.1"
