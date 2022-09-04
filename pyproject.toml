@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-quantaq"
-version = "1.1.0"
+version = "1.2.0a0"
 description = "API wrapper and utils for QuantAQ, Inc."
 authors = ["David H Hagan <david.hagan@quant-aq.com>"]
 license = "Apache License 2.0"
@@ -15,10 +15,12 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.6.1"
-requests = "^2.24.0"
-pandas = ">=1.0.5"
-setuptools = "^47.3.1"
+python = ">=3.8, <3.11"
+requests = "^2.24"
+pandas = ">=1.0"
+setuptools = ">=47."
+urllib3 = ">=1.26.5"
+numpy = ">=1.22"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.4.3"
