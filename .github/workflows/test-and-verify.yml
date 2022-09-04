@@ -17,13 +17,12 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Install poetry
-        uses: snok/install-poetry@v1.1.2
+        uses: snok/install-poetry@v1
         with:
-          version: 1.1.5
           virtualenvs-create: true
       
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-interaction
 
       - name: Run tests and generate coverage report
         run: |
