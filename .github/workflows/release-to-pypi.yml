@@ -18,7 +18,7 @@ jobs:
                 python-version: 3.8
             
             - name: Install poetry
-              uses: snok/install-poetry@v1.1.2
+              uses: snok/install-poetry@v1.3.4
               with:
                 version: 1.1.5
                 virtualenvs-create: true
