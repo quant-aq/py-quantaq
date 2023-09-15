@@ -7,7 +7,7 @@ on:
 jobs:
     build-n-publish:
         name: Build and publish to PyPI
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout branch
               uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
                 python-version: 3.8
             
             - name: Install poetry
-              uses: snok/install-poetry@v1.1.2
+              uses: snok/install-poetry@v1.3.4
               with:
                 version: 1.1.5
                 virtualenvs-create: true
