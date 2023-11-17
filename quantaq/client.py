@@ -45,7 +45,6 @@ class ClientBase(object):
 
         self._users = None
         self._devices = None
-        self._teams = None
         self._orgs = None
         self._networks = None
         self._data = None
@@ -216,14 +215,6 @@ class APIClient(ClientBase):
             from .endpoints.users import Users
             self._users = Users(self)
         return self._users
-
-    @property
-    def teams(self):
-        """"""
-        if self._teams is None:
-            from .endpoints.teams import Teams
-            self._teams = Teams(self)
-        return self._teams
 
     @property
     def orgs(self):
