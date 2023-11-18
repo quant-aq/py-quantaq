@@ -16,6 +16,8 @@ class Devices(Domain):
     def list(self, **kwargs) -> list:
         """Return all (available) devices.
 
+        :param int org_id: Filter to devices owned by given org.
+        :param int network_id: Filter to devices owned by given network.
         :param str limit: Limit the number of results returned
         :param str sort: Sort the results by a specific attribute
         :param str filter: Filter the query
