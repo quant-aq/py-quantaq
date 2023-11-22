@@ -39,13 +39,22 @@ the Usage section for instructions on how to use them.
     endpoints.users.Users.update
 
 
-.. rubric:: Teams Endpoints
+.. rubric:: Orgs Endpoints
 
 .. autosummary::
     :toctree: generated/
 
-    endpoints.teams.Teams.list
-    endpoints.teams.Teams.get
+    endpoints.orgs.Orgs.list
+    endpoints.orgs.Orgs.get
+
+
+.. rubric:: Networks Endpoints
+
+.. autosummary::
+    :toctree: generated/
+
+    endpoints.networks.Networks.list
+    endpoints.networks.Networks.get
 
 
 .. rubric:: Devices Endpoints

@@ -1,4 +1,4 @@
-quantaq.endpoints.users.Users.update
+﻿quantaq.endpoints.users.Users.update
 ====================================
 
 .. currentmodule:: quantaq.endpoints.users

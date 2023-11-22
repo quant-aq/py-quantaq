@@ -1,4 +1,4 @@
-quantaq.client.StagingAPIClient
+﻿quantaq.client.StagingAPIClient
 ===============================
 
 .. currentmodule:: quantaq.client
@@ -35,7 +35,8 @@ quantaq.client.StagingAPIClient
       ~StagingAPIClient.headers
       ~StagingAPIClient.logs
       ~StagingAPIClient.models
-      ~StagingAPIClient.teams
+      ~StagingAPIClient.networks
+      ~StagingAPIClient.orgs
       ~StagingAPIClient.users
    
    

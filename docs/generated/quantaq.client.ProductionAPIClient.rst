@@ -1,4 +1,4 @@
-quantaq.client.ProductionAPIClient
+﻿quantaq.client.ProductionAPIClient
 ==================================
 
 .. currentmodule:: quantaq.client
@@ -35,7 +35,8 @@ quantaq.client.ProductionAPIClient
       ~ProductionAPIClient.headers
       ~ProductionAPIClient.logs
       ~ProductionAPIClient.models
-      ~ProductionAPIClient.teams
+      ~ProductionAPIClient.networks
+      ~ProductionAPIClient.orgs
       ~ProductionAPIClient.users
    
    

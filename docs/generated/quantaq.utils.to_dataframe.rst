@@ -1,4 +1,4 @@
-quantaq.utils.to\_dataframe
+﻿quantaq.utils.to\_dataframe
 ===========================
 
 .. currentmodule:: quantaq.utils

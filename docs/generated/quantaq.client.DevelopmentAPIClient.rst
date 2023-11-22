@@ -1,4 +1,4 @@
-quantaq.client.DevelopmentAPIClient
+﻿quantaq.client.DevelopmentAPIClient
 ===================================
 
 .. currentmodule:: quantaq.client
@@ -35,7 +35,8 @@ quantaq.client.DevelopmentAPIClient
       ~DevelopmentAPIClient.headers
       ~DevelopmentAPIClient.logs
       ~DevelopmentAPIClient.models
-      ~DevelopmentAPIClient.teams
+      ~DevelopmentAPIClient.networks
+      ~DevelopmentAPIClient.orgs
       ~DevelopmentAPIClient.users
    
    
