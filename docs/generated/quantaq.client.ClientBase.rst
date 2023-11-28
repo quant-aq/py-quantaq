@@ -1,4 +1,4 @@
-quantaq.client.ClientBase
+﻿quantaq.client.ClientBase
 =========================
 
 .. currentmodule:: quantaq.client

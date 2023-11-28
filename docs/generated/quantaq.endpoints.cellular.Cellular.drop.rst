@@ -1,4 +1,4 @@
-quantaq.endpoints.cellular.Cellular.drop
+﻿quantaq.endpoints.cellular.Cellular.drop
 ========================================
 
 .. currentmodule:: quantaq.endpoints.cellular

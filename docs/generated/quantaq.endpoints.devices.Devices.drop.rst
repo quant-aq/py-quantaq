@@ -1,4 +1,4 @@
-quantaq.endpoints.devices.Devices.drop
+﻿quantaq.endpoints.devices.Devices.drop
 ======================================
 
 .. currentmodule:: quantaq.endpoints.devices

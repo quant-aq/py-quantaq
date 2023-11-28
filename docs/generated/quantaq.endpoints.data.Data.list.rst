@@ -1,4 +1,4 @@
-quantaq.endpoints.data.Data.list
+﻿quantaq.endpoints.data.Data.list
 ================================
 
 .. currentmodule:: quantaq.endpoints.data

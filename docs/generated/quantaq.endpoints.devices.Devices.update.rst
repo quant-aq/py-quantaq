@@ -1,4 +1,4 @@
-quantaq.endpoints.devices.Devices.update
+﻿quantaq.endpoints.devices.Devices.update
 ========================================
 
 .. currentmodule:: quantaq.endpoints.devices

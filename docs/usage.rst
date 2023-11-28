@@ -72,29 +72,55 @@ obtain your user account information, you can use the `whoami` method:
     >>> print (whoami)
 
 
-Teams
-------
+Organizations
+-------------
 
-List All Teams
-^^^^^^^^^^^^^^
+List All Organizations
+^^^^^^^^^^^^^^^^^^^^^^
 
-You can retrieve a list of all the teams you belong to:
+You can retrieve a list of all the organizations visible to you:
 
 .. code-block:: python
 
-    >>> teams = client.teams.list()
-    >>> print (teams)
+    >>> organizations = client.organizations.list()
+    >>> print (organizations)
 
-Get a Single Team
-^^^^^^^^^^^^^^^^^
+Get a Single Organization
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get information about a specific team, you can use the `get` method 
+To get information about a specific organization, you can use the `get` method 
 with the id as an argument:
 
 .. code-block:: python
 
-    >>> team = client.teams.get(id=1)
-    >>> print (team)
+    >>> organization = client.organizations.get(id=1)
+    >>> print (organization)
+
+
+Networks
+--------
+
+List All Networks
+^^^^^^^^^^^^^^^^^
+
+You can retrieve a list of all the networks visible to you, in the context of 
+a given organization, with the organization_id as an argument:
+
+.. code-block:: python
+
+    >>> networks = client.networks.list(organization_id=1)
+    >>> print (networks)
+
+Get a Single Network
+^^^^^^^^^^^^^^^^^^^^
+
+To get information about a specific network, you can use the `get` method 
+with the parent organization_id and the network_id as arguments:
+
+.. code-block:: python
+
+    >>> network = client.networks.get(organization_id=1, network_id=1)
+    >>> print (network)
 
 
 Devices
@@ -124,6 +150,15 @@ function to convert the list to a dataframe:
 
 Devices - Advanced Queries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Devices are filterable by organization and network, using the organization_id and network_id
+kwargs. For example, to get the devices in a particular organization:
+
+.. code-block:: python
+
+    >>> devices = client.devices.list(organization_id=1)
+    >>> print (devices)
+
 
 You can also limit the number of devices to return using the `limit` kwarg or 
 apply advanced filters using the `filter` kwarg. More details on how to 

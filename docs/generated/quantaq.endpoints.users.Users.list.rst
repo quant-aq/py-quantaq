@@ -1,4 +1,4 @@
-quantaq.endpoints.users.Users.list
+﻿quantaq.endpoints.users.Users.list
 ==================================
 
 .. currentmodule:: quantaq.endpoints.users

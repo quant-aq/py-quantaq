@@ -1,4 +1,4 @@
-quantaq.endpoints.models.Models.add
+﻿quantaq.endpoints.models.Models.add
 ===================================
 
 .. currentmodule:: quantaq.endpoints.models

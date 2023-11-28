@@ -102,6 +102,11 @@ def test_devices_list():
     assert 'status' in resp[0]
     assert len(resp) == 3
 
+    # brief check that organization_id/network_id are passed on as query parameters
+    resp = client.devices.list(organization_id=1, network_id=1)
+    assert 'network_id=1&org_id=1' in responses.calls[1].request.url
+    assert type(resp) == list
+
 @responses.activate
 def test_devices_get():
     responses.add(responses.GET, "https://localhost/device-api/v1/devices/SN000-000", 
