@@ -102,9 +102,9 @@ def test_devices_list():
     assert 'status' in resp[0]
     assert len(resp) == 3
 
-    # brief check that org_id/network_id are passed on as query parameters
-    resp = client.devices.list(org_id=1, network_id=1)
-    assert 'org_id=1&network_id=1' in responses.calls[1].request.url
+    # brief check that organization_id/network_id are passed on as query parameters
+    resp = client.devices.list(organization_id=1, network_id=1)
+    assert 'network_id=1&org_id=1' in responses.calls[1].request.url
     assert type(resp) == list
 
 @responses.activate

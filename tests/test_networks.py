@@ -36,7 +36,7 @@ def test_networks_list():
         "https://localhost/device-api/", 
         api_key="a123", version="v1")
 
-    resp = client.networks.list(org_id=1)
+    resp = client.networks.list(organization_id=1)
 
     assert type(resp) == list
     assert type(resp[0]) == dict
@@ -55,6 +55,6 @@ def test_networks_get():
         api_key="a123", version="v1")
 
     # test the GET verb
-    resp = client.networks.get(org_id=1, network_id=1)
+    resp = client.networks.get(organization_id=1, network_id=1)
 
     assert type(resp) == dict

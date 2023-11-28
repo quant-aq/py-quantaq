@@ -16,7 +16,7 @@ class Devices(Domain):
     def list(self, **kwargs) -> list:
         """Return all (available) devices.
 
-        :param int org_id: Filter to devices owned by given org.
+        :param int organization_id: Filter to devices owned by given organization.
         :param int network_id: Filter to devices owned by given network.
         :param str limit: Limit the number of results returned
         :param str sort: Sort the results by a specific attribute
@@ -26,6 +26,9 @@ class Devices(Domain):
         :returns: List of devices.
         :rtype: list of dict
         """
+        # translate this to what's expected by the API
+        if 'organization_id' in kwargs:
+            kwargs["org_id"] = kwargs.pop("organization_id")
         return self.client.requests("devices/", **kwargs)
 
     def get(self, **kwargs) -> dict:

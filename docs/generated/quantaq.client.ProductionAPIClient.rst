@@ -36,7 +36,7 @@
       ~ProductionAPIClient.logs
       ~ProductionAPIClient.models
       ~ProductionAPIClient.networks
-      ~ProductionAPIClient.orgs
+      ~ProductionAPIClient.organizations
       ~ProductionAPIClient.users
    
    

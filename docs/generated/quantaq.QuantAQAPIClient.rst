@@ -36,7 +36,7 @@
       ~QuantAQAPIClient.logs
       ~QuantAQAPIClient.models
       ~QuantAQAPIClient.networks
-      ~QuantAQAPIClient.orgs
+      ~QuantAQAPIClient.organizations
       ~QuantAQAPIClient.users
    
    

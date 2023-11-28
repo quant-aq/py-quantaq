@@ -36,7 +36,7 @@
       ~APIClient.logs
       ~APIClient.models
       ~APIClient.networks
-      ~APIClient.orgs
+      ~APIClient.organizations
       ~APIClient.users
    
    

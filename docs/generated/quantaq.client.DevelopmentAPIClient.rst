@@ -36,7 +36,7 @@
       ~DevelopmentAPIClient.logs
       ~DevelopmentAPIClient.models
       ~DevelopmentAPIClient.networks
-      ~DevelopmentAPIClient.orgs
+      ~DevelopmentAPIClient.organizations
       ~DevelopmentAPIClient.users
    
    

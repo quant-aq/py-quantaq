@@ -82,8 +82,8 @@ You can retrieve a list of all the organizations visible to you:
 
 .. code-block:: python
 
-    >>> orgs = client.orgs.list()
-    >>> print (orgs)
+    >>> organizations = client.organizations.list()
+    >>> print (organizations)
 
 Get a Single Organization
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,8 +93,8 @@ with the id as an argument:
 
 .. code-block:: python
 
-    >>> org = client.orgs.get(id=1)
-    >>> print (org)
+    >>> organization = client.organizations.get(id=1)
+    >>> print (organization)
 
 
 Networks
@@ -104,11 +104,11 @@ List All Networks
 ^^^^^^^^^^^^^^^^^
 
 You can retrieve a list of all the networks visible to you, in the context of 
-a given organization, with the org_id as an argument:
+a given organization, with the organization_id as an argument:
 
 .. code-block:: python
 
-    >>> networks = client.networks.list(org_id=1)
+    >>> networks = client.networks.list(organization_id=1)
     >>> print (networks)
 
 Get a Single Network
@@ -119,7 +119,7 @@ with the parent organization_id and the network_id as arguments:
 
 .. code-block:: python
 
-    >>> network = client.networks.get(org_id=1, network_id=1)
+    >>> network = client.networks.get(organization_id=1, network_id=1)
     >>> print (network)
 
 
@@ -151,12 +151,12 @@ function to convert the list to a dataframe:
 Devices - Advanced Queries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Devices are filterable by organization and network, using the org_id and network_id
+Devices are filterable by organization and network, using the organization_id and network_id
 kwargs. For example, to get the devices in a particular organization:
 
 .. code-block:: python
 
-    >>> devices = client.devices.list(org_id=1)
+    >>> devices = client.devices.list(organization_id=1)
     >>> print (devices)
 
 

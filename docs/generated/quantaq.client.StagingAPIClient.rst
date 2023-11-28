@@ -36,7 +36,7 @@
       ~StagingAPIClient.logs
       ~StagingAPIClient.models
       ~StagingAPIClient.networks
-      ~StagingAPIClient.orgs
+      ~StagingAPIClient.organizations
       ~StagingAPIClient.users
    
    
