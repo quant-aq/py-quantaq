@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>quantaq.endpoints.logs.Logs.drop &mdash; py-quantaq 1.3.0 documentation</title>
+  <title>quantaq.endpoints.networks.Networks.get &mdash; py-quantaq 1.3.0 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="quantaq.endpoints.cellular.Cellular.list" href="quantaq.endpoints.cellular.Cellular.list.html" />
-    <link rel="prev" title="quantaq.endpoints.logs.Logs.update" href="quantaq.endpoints.logs.Logs.update.html" /> 
+    <link rel="next" title="quantaq.endpoints.devices.Devices.list" href="quantaq.endpoints.devices.Devices.list.html" />
+    <link rel="prev" title="quantaq.endpoints.networks.Networks.list" href="quantaq.endpoints.networks.Networks.list.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -104,7 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.organizations.Organizations.list.html">quantaq.endpoints.organizations.Organizations.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.organizations.Organizations.get.html">quantaq.endpoints.organizations.Organizations.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.networks.Networks.list.html">quantaq.endpoints.networks.Networks.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.networks.Networks.get.html">quantaq.endpoints.networks.Networks.get</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">quantaq.endpoints.networks.Networks.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.list.html">quantaq.endpoints.devices.Devices.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.get.html">quantaq.endpoints.devices.Devices.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.devices.Devices.update.html">quantaq.endpoints.devices.Devices.update</a></li>
@@ -116,7 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.list.html">quantaq.endpoints.logs.Logs.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.get.html">quantaq.endpoints.logs.Logs.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.update.html">quantaq.endpoints.logs.Logs.update</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">quantaq.endpoints.logs.Logs.drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.logs.Logs.drop.html">quantaq.endpoints.logs.Logs.drop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.cellular.Cellular.list.html">quantaq.endpoints.cellular.Cellular.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.cellular.Cellular.drop.html">quantaq.endpoints.cellular.Cellular.drop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="quantaq.endpoints.models.Models.add.html">quantaq.endpoints.models.Models.add</a></li>
@@ -176,13 +176,13 @@
         
           <li><a href="../api.html">API Reference</a> &raquo;</li>
         
-      <li>quantaq.endpoints.logs.Logs.drop</li>
+      <li>quantaq.endpoints.networks.Networks.get</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/generated/quantaq.endpoints.logs.Logs.drop.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/quantaq.endpoints.networks.Networks.get.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -195,20 +195,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="quantaq-endpoints-logs-logs-drop">
-<h1>quantaq.endpoints.logs.Logs.drop<a class="headerlink" href="#quantaq-endpoints-logs-logs-drop" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="quantaq-endpoints-networks-networks-get">
+<h1>quantaq.endpoints.networks.Networks.get<a class="headerlink" href="#quantaq-endpoints-networks-networks-get" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
-<dt class="sig sig-object py" id="quantaq.endpoints.logs.Logs.drop">
-<span class="sig-prename descclassname"><span class="pre">Logs.</span></span><span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#quantaq.endpoints.logs.Logs.drop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete the log record.</p>
+<dt class="sig sig-object py" id="quantaq.endpoints.networks.Networks.get">
+<span class="sig-prename descclassname"><span class="pre">Networks.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantaq.endpoints.networks.Networks.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return network with id=network_id in organization with id=organization_id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – The log id</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>organization_id</strong> (<em>int</em>) – The parent organization id</p></li>
+<li><p><strong>network_id</strong> (<em>int</em>) – The network id</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>API call status</p>
+<dd class="field-even"><p>Network information</p>
 </dd>
-<dt class="field-odd">Rytpe</dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -222,8 +225,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="quantaq.endpoints.cellular.Cellular.list.html" class="btn btn-neutral float-right" title="quantaq.endpoints.cellular.Cellular.list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="quantaq.endpoints.logs.Logs.update.html" class="btn btn-neutral float-left" title="quantaq.endpoints.logs.Logs.update" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quantaq.endpoints.devices.Devices.list.html" class="btn btn-neutral float-right" title="quantaq.endpoints.devices.Devices.list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quantaq.endpoints.networks.Networks.list.html" class="btn btn-neutral float-left" title="quantaq.endpoints.networks.Networks.list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

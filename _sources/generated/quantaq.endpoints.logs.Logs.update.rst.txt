@@ -1,4 +1,4 @@
-quantaq.endpoints.logs.Logs.update
+﻿quantaq.endpoints.logs.Logs.update
 ==================================
 
 .. currentmodule:: quantaq.endpoints.logs

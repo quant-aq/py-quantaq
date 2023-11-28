@@ -1,4 +1,4 @@
-quantaq.QuantAQAPIClient
+﻿quantaq.QuantAQAPIClient
 ========================
 
 .. currentmodule:: quantaq
@@ -35,7 +35,8 @@ quantaq.QuantAQAPIClient
       ~QuantAQAPIClient.headers
       ~QuantAQAPIClient.logs
       ~QuantAQAPIClient.models
-      ~QuantAQAPIClient.teams
+      ~QuantAQAPIClient.networks
+      ~QuantAQAPIClient.organizations
       ~QuantAQAPIClient.users
    
    

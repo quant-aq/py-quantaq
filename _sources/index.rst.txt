@@ -6,9 +6,9 @@
 py-quantaq
 ===========
 
-`py-quantaq` is built to make it easy to access the QuantAQ REST API using Python. The 
-most recent versions of the library can be found on PyPI and supports applications written 
-using Python 3.6 and later.
+`py-quantaq` is built to make it easy to access the `QuantAQ <https://quant-aq.com>`_ REST API using Python.
+The most recent versions of the library can be found on `PyPI <https://pypi.org/project/py-quantaq/>`_ and
+support applications written using Python 3.6 and later.
 
 
 Install the Library
@@ -30,7 +30,8 @@ management tool:
    $ poetry add py-quantaq
 
 
-You can also clone the repository locally and build from source using poetry:
+You can also clone the repository from `GitHub <https://github.com/quant-aq/py-quantaq/>`_
+locally and build from source using poetry:
 
 .. code-block:: shell
 

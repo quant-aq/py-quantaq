@@ -1,4 +1,4 @@
-quantaq.client.APIClient
+﻿quantaq.client.APIClient
 ========================
 
 .. currentmodule:: quantaq.client
@@ -35,7 +35,8 @@ quantaq.client.APIClient
       ~APIClient.headers
       ~APIClient.logs
       ~APIClient.models
-      ~APIClient.teams
+      ~APIClient.networks
+      ~APIClient.organizations
       ~APIClient.users
    
    

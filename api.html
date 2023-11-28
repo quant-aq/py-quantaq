@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>API Reference &mdash; py-quantaq 1.1.0 documentation</title>
+  <title>API Reference &mdash; py-quantaq 1.3.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -63,7 +66,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.3.0
               </div>
             
           
@@ -88,7 +91,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Using this Library</a></li>
@@ -106,8 +109,10 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.users.Users.list.html">quantaq.endpoints.users.Users.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.users.Users.get.html">quantaq.endpoints.users.Users.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.users.Users.update.html">quantaq.endpoints.users.Users.update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.list.html">quantaq.endpoints.teams.Teams.list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.get.html">quantaq.endpoints.teams.Teams.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.organizations.Organizations.list.html">quantaq.endpoints.organizations.Organizations.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.organizations.Organizations.get.html">quantaq.endpoints.organizations.Organizations.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.networks.Networks.list.html">quantaq.endpoints.networks.Networks.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.networks.Networks.get.html">quantaq.endpoints.networks.Networks.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.list.html">quantaq.endpoints.devices.Devices.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.get.html">quantaq.endpoints.devices.Devices.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/quantaq.endpoints.devices.Devices.update.html">quantaq.endpoints.devices.Devices.update</a></li>
@@ -208,7 +213,7 @@
 which will connect you directly to the QuantAQ website. If using an enterprise version of
 the QuantAQ API and server, you can build your own API client following the instructions in the
 Usage section.</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -240,7 +245,7 @@ Usage section.</p>
 <p>The following is an extensive list of all available API endpoints. Please check
 the Usage section for instructions on how to use them.</p>
 <p class="rubric">Users Endpoints</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -257,23 +262,38 @@ the Usage section for instructions on how to use them.</p>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Teams Endpoints</p>
-<table class="longtable docutils align-default">
+<p class="rubric">Organizations Endpoints</p>
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.list.html#quantaq.endpoints.teams.Teams.list" title="quantaq.endpoints.teams.Teams.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.teams.Teams.list</span></code></a>(**kwargs)</p></td>
-<td><p>Return a list of teams the account belongs to.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.organizations.Organizations.list.html#quantaq.endpoints.organizations.Organizations.list" title="quantaq.endpoints.organizations.Organizations.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.organizations.Organizations.list</span></code></a>(...)</p></td>
+<td><p>Return a list of organizations accessible by the account.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.teams.Teams.get.html#quantaq.endpoints.teams.Teams.get" title="quantaq.endpoints.teams.Teams.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.teams.Teams.get</span></code></a>(**kwargs)</p></td>
-<td><p>Return team with id = id.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.organizations.Organizations.get.html#quantaq.endpoints.organizations.Organizations.get" title="quantaq.endpoints.organizations.Organizations.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.organizations.Organizations.get</span></code></a>(...)</p></td>
+<td><p>Return organizations with id = id.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Networks Endpoints</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/quantaq.endpoints.networks.Networks.list.html#quantaq.endpoints.networks.Networks.list" title="quantaq.endpoints.networks.Networks.list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.networks.Networks.list</span></code></a>(**kwargs)</p></td>
+<td><p>Return a list of networks accessible by the account, in the context of the organization with id=organization_id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/quantaq.endpoints.networks.Networks.get.html#quantaq.endpoints.networks.Networks.get" title="quantaq.endpoints.networks.Networks.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endpoints.networks.Networks.get</span></code></a>(**kwargs)</p></td>
+<td><p>Return network with id=network_id in organization with id=organization_id.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Devices Endpoints</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -297,7 +317,7 @@ the Usage section for instructions on how to use them.</p>
 </tbody>
 </table>
 <p class="rubric">Data Endpoints</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -315,7 +335,7 @@ the Usage section for instructions on how to use them.</p>
 </tbody>
 </table>
 <p class="rubric">Logs Endpoints</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -336,7 +356,7 @@ the Usage section for instructions on how to use them.</p>
 </tbody>
 </table>
 <p class="rubric">Cellular Logs Endpoints</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -351,7 +371,7 @@ the Usage section for instructions on how to use them.</p>
 </tbody>
 </table>
 <p class="rubric">Models Endpoints</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -369,7 +389,7 @@ the Usage section for instructions on how to use them.</p>
 <div class="section" id="utilities">
 <h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
 <p class="rubric">Utils</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -397,7 +417,7 @@ the Usage section for instructions on how to use them.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, QuantAQ, Inc..
+        &#169; Copyright 2019-2023, QuantAQ, Inc..
 
     </p>
   </div>

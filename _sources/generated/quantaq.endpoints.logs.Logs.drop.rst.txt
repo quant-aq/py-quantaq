@@ -1,4 +1,4 @@
-quantaq.endpoints.logs.Logs.drop
+﻿quantaq.endpoints.logs.Logs.drop
 ================================
 
 .. currentmodule:: quantaq.endpoints.logs
