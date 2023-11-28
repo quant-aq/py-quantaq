@@ -25,13 +25,11 @@ jobs:
                 virtualenvs-create: true
             
             - name: Install dependencies
-              run: |
-                source $HOME/.poetry/env
-                poetry install
+              run: poetry install
             
             - name: build docs
               run: |
-                source .venv/bin/activate 
+                poetry shell
                 cd docs
                 make clean
                 make html
