@@ -78,6 +78,13 @@ the Usage section for instructions on how to use them.
     endpoints.data.Data.bydate
     endpoints.data.Data.get
 
+.. rubric:: Solar Power System Data Endpoints
+    
+.. autosummary::
+    :toctree: generated/
+
+    endpoints.solar.Solar.list
+
 
 .. rubric:: Logs Endpoints
 
