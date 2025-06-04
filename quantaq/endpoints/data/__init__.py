@@ -60,6 +60,28 @@ class Data(Domain):
         endpoint += date + "/"
 
         return self.client.requests(endpoint)
+    
+    def byinterval(self, **kwargs) -> list:
+        """Return resampled data for a device with serial number <sn> between <start_date> 
+        and <end_date> using resample period <period>.
+
+        :param str sn: The device serial number
+        :param str start_date: The start date to retrieve data for in YYYY-MM-DD format (all GMT)
+        :param str end_date: The end date to retrieve data for in YYYY-MM-DD format (all GMT)
+        :param str period: The resample period; one of ['15min', '1h', '8h', or '1d']
+        
+        :returns: paginated list of resampled data
+        :rtype: list of dicts
+        
+        """
+        sn = kwargs.pop("sn")
+        start = kwargs.pop("start_date")
+        end = kwargs.pop("end_date")
+        period = kwargs.pop("period")
+        
+        endpoint = f"devices/{sn}/data/resampled/?start_date={start}&end_date={end}&period={period}"
+        
+        return self.client.requests(endpoint, **kwargs)
 
     def get(self, **kwargs) -> dict:
         """Return a single data point.
