@@ -48,6 +48,7 @@ class ClientBase(object):
         self._organizations = None
         self._networks = None
         self._data = None
+        self._solar = None
         self._logs = None
         self._cellular = None
         self._models = None
@@ -248,6 +249,14 @@ class APIClient(ClientBase):
             self._data = Data(self)
         return self._data
 
+    @property
+    def solar(self):
+        """"""
+        if self._solar is None:
+            from .endpoints.solar import Solar
+            self._solar = Solar(self)
+        return self._solar
+        
     @property
     def logs(self):
         """"""

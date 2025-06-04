@@ -399,3 +399,25 @@ def test_resampled_data():
     resp = client.data.byinterval(sn="MOD-00100", start_date="2024-01-01", end_date="2024-01-02", period="1h")
     
     assert type(resp) == dict
+    
+@responses.activate
+def test_solar_data():
+    responses.add(responses.GET, "https://localhost/device-api/v1/devices/MOD-00100/data/solar/",
+                  status=200, json={
+                      "data": [
+                          
+                      ],
+                      "meta": {
+                          "total": 100,
+                          "per_page": 100
+                      }
+        }
+    )
+    
+    client = quantaq.client.APIClient(
+        "https://localhost/device-api/", api_key="a123", version="v1"
+    )
+    
+    resp = client.solar.list(sn="MOD-00100")
+    
+    assert type(resp) == list
