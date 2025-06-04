@@ -299,7 +299,6 @@ def test_data_list_raw():
     assert 'co_we' in resp[0]
     assert len(resp) == 2
 
-
 @responses.activate
 def test_data_get():
     responses.add(responses.GET, "https://localhost/device-api/v1/devices/SN000-000/data/10",
@@ -378,4 +377,25 @@ def test_data_get_raw():
     # test the GET verb
     resp = client.data.get(sn="SN000-000", id=10, raw=True)
 
+    assert type(resp) == dict
+   
+@responses.activate 
+def test_resampled_data():
+    responses.add(responses.GET, "https://localhost/device-api/v1/devices/MOD-00100/data/resampled/?start_date=2024-01-01&end_date=2024-01-02&period=1h&per_page=100",
+                  status=200, json={
+                      "data": [
+                          {
+                              "co": 1.234,
+                          },
+                      ]
+        }
+    )
+
+    client = quantaq.client.APIClient(
+        "https://localhost/device-api/", api_key="a123", version="v1"
+    )
+    
+    # Test the GET
+    resp = client.data.byinterval(sn="MOD-00100", start_date="2024-01-01", end_date="2024-01-02", period="1h")
+    
     assert type(resp) == dict

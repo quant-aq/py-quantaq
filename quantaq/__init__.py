@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from pkg_resources import get_distribution
+from importlib.metadata import version
 import quantaq
 
-__version__ = get_distribution("py-quantaq").version
+__version__ = version("py-quantaq")
 
 from .client import (
     ClientBase, 

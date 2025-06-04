@@ -281,7 +281,7 @@ class DevelopmentAPIClient(APIClient):
 
 class StagingAPIClient(APIClient):
     def __init__(self, api_key=None) -> None:
-        super().__init__("https://dev.quant-aq.com/device-api/", 
+        super().__init__("https://api.quant-aq.dev/device-api/", 
                             version="v1", api_key=api_key)
 
 

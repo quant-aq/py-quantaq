@@ -41,7 +41,7 @@ def test_base(monkeypatch):
     # test the staging api client
     client = quantaq.client.StagingAPIClient(api_key="staging")
     assert client.api_key == "staging"
-    assert client.base_url == "https://dev.quant-aq.com/device-api/"
+    assert client.base_url == "https://api.quant-aq.dev/device-api/"
     assert client.version == "v1"
 
     # test the production api client
