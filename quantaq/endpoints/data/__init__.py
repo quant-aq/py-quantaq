@@ -103,3 +103,34 @@ class Data(Domain):
         endpoint += str(id)
 
         return self.client.requests(endpoint)
+    
+    def recent(self, **kwargs) -> dict:
+        """Return the most recent data record for a single sensor, network of sensors, or
+        for all sensors in an Organization.
+        
+        :param str sn: The device serial number
+        :param int org_id: The id of the Organization
+        :param int network_id: The id of the Network
+        
+        You only need to include one of the above.
+        
+        :returns: Data information
+        :rtype: dict
+        """
+        sn = kwargs.pop("sn", None)
+        org_id = kwargs.pop("org_id", None)
+        network_id = kwargs.pop("network_id", None)
+        
+        available_params = {
+            "sn": sn,
+            "org_id": org_id,
+            "network_id": network_id
+        }
+        
+        if all(v is None for k, v in available_params.items()):
+            raise Exception("Invalid arguments. This method requires at least one of ['sn', 'org_id', or 'network_id']")
+        
+        params = "&".join([f"{k}={v}" for k, v in available_params.items() if v is not None])
+        endpoint = f"data/most-recent/?{params}"
+        
+        return self.client.requests(endpoint)

@@ -421,3 +421,22 @@ def test_solar_data():
     resp = client.solar.list(sn="MOD-00100")
     
     assert type(resp) == list
+    
+@responses.activate
+def test_recent_data():
+    responses.add(responses.GET, "https://localhost/device-api/v1/data/most-recent/?sn=MOD-00100&per_page=100",
+                  status=200, json={
+                      "data": [
+                          {
+                              "co": 771.7,
+                          }
+                      ]
+                  })
+
+    client = quantaq.client.APIClient(
+        "https://localhost/device-api/", api_key="a123", version="v1"
+    )
+    
+    resp = client.data.recent(sn="MOD-00100")
+    
+    assert type(resp) == dict
