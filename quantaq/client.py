@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import json
+import time
 import quantaq
 import requests
 import logging
@@ -138,7 +139,19 @@ class ClientBase(object):
         # log the request
         self._logger.debug("{} {} {}: {} {}".format(type, url, payload, params, agent))
 
-        return requests_method(url, auth=self.auth, **kwargs)
+        # retry up to 2 times on rate limit (429)
+        max_retries = 2
+        for attempt in range(max_retries + 1):
+            response = requests_method(url, auth=self.auth, **kwargs)
+
+            if response.status_code != 429:
+                return response
+
+            if attempt < max_retries:
+                self._logger.warning(f"Rate limited (429), sleeping 60s before retry {attempt + 1}/{max_retries}")
+                time.sleep(60)
+
+        return response
 
     def requests(self, endpoint, verb=GET, params=dict(), **kwargs):
         """Request, but for many of them (i.e. deals with pagination)
