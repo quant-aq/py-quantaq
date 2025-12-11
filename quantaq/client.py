@@ -91,6 +91,7 @@ class ClientBase(object):
                 params[k] = v
             
             # re-issue the request for the next page
+            # TODO should probably catch non-200 errors here.
             data = self.request(endpoint, verb, params).json()
 
             # append the data
@@ -150,6 +151,8 @@ class ClientBase(object):
             if attempt < max_retries:
                 self._logger.warning(f"Rate limited (429), sleeping 60s before retry {attempt + 1}/{max_retries}")
                 time.sleep(60)
+            else:
+                raise QuantAQAPIException("Rate limiting retries exceeded.")
 
         return response
 

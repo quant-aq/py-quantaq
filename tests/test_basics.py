@@ -50,6 +50,98 @@ def test_base(monkeypatch):
     assert client.base_url == "https://api.quant-aq.com/device-api/"
     assert client.version == "v1"
 
+
+@responses.activate
+def test_rate_limit_retry():
+    def set_responses(num_fails):
+        responses.reset()
+        # succeed first page, fail next one x times, succeed second page, succeed last one.
+        responses.add(
+            responses.GET,
+            "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1",
+            json={
+                "meta": {
+                    "first_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=1",
+                    "last_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=3",
+                    "next_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=2",
+                    "page": 1,
+                    "pages": 3,
+                    "per_page": 1,
+                    "prev_url": None,
+                    "total": 3,
+                },
+                "data": [{"blah": 1}],
+            },
+            status=200,
+        )
+        for n in range(num_fails):
+            responses.add(
+                responses.GET,
+                "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=2",
+                json={"error": "too many requests", "message": "blah blah"},
+                status=429,
+            )
+        responses.add(
+            responses.GET,
+            "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=2",
+            json={
+                "meta": {
+                    "first_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=1",
+                    "last_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=3",
+                    "next_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=3",
+                    "page": 2,
+                    "pages": 3,
+                    "per_page": 1,
+                    "prev_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=1",
+                    "total": 3,
+                },
+                "data": [{"blah": 2}],
+            },
+            status=200,
+        )
+        responses.add(
+            responses.GET,
+            "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=3",
+            json={
+                "meta": {
+                    "first_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=1",
+                    "last_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=3",
+                    "next_url": None,
+                    "page": 3,
+                    "pages": 3,
+                    "per_page": 1,
+                    "prev_url": "https://localhost/device-api/v1/devices/BLAH/data/?per_page=1&page=2",
+                    "total": 3,
+                },
+                "data": [{"blah": 3}],
+            },
+            status=200,
+        )
+
+    client = quantaq.client.APIClient(
+        "https://localhost/device-api/",
+        api_key="a123",
+        version="v1",
+    )
+
+    # if it fails twice, we're good
+    set_responses(num_fails=2)
+    resp = client.data.list(sn="BLAH", per_page=1)
+    assert len(resp) == 3
+    assert resp == [
+        {'blah': 1},
+        {'blah': 2},
+        {'blah': 3},
+    ]
+    assert len(responses.calls) == 5
+
+    # if it fails three times, that's surfaced
+    set_responses(num_fails=3)
+    with pytest.raises(QuantAQAPIException, match="Rate limiting retries exceeded."):
+        client.data.list(sn="BLAH", per_page=1)
+    assert len(responses.calls) == 4
+
+
 @responses.activate
 def test_whoami():
     responses.add(responses.GET, "https://api.quant-aq.com/device-api/v1/account", 
