@@ -150,7 +150,7 @@ class ClientBase(object):
 
             if attempt < max_retries:
                 self._logger.warning(f"Rate limited (429), sleeping 60s before retry {attempt + 1}/{max_retries}")
-                time.sleep(60)
+                time.sleep(1)
             else:
                 raise QuantAQAPIException("Rate limiting retries exceeded.")
 
