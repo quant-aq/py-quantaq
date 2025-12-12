@@ -37,6 +37,7 @@
       ~QuantAQAPIClient.models
       ~QuantAQAPIClient.networks
       ~QuantAQAPIClient.organizations
+      ~QuantAQAPIClient.solar
       ~QuantAQAPIClient.users
    
    

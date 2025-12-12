@@ -37,6 +37,7 @@
       ~StagingAPIClient.models
       ~StagingAPIClient.networks
       ~StagingAPIClient.organizations
+      ~StagingAPIClient.solar
       ~StagingAPIClient.users
    
    
