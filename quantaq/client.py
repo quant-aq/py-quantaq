@@ -162,10 +162,11 @@ class ClientBase(object):
 
         return response
 
-    def requests(self, endpoint, verb=GET, params=dict(), **kwargs):
-        # TODO troubled by the usage of dict() in params here and mutably
+    def requests(self, endpoint, verb=GET, params=None, **kwargs):
         """Request, but for many of them (i.e. deals with pagination)
         """
+        params = dict() if params is None else params
+
         # set defaults
         if verb == GET:
             params.setdefault("per_page", 100)
