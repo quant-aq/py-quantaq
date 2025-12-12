@@ -23,16 +23,21 @@ POST = "POST"
 class ClientBase(object):
     """A client for accessing the QuantAQ API."""
     def __init__(
-        self, 
-        api_key=None, 
-        base_url=None, 
-        version=None) -> None:
+        self,
+        api_key=None,
+        base_url=None,
+        version=None,
+        rate_limit_retries=2,
+        rate_limit_sleep_s=60,
+    ) -> None:
         """
         Initialize the QuantAQ API.
 
         :param str api_key: API key to authenticate with
         :param str base_url: The base url for API calls, defaults to 'https://api.quant-aq.com/device-api'
         :param str version: The API version, defaults to 'v1'
+        :param int rate_limit_retries: Number of times to retry on 429 rate limit errors (default 2)
+        :param int rate_limit_sleep_s: Seconds to sleep between rate limit retries (default 60)
 
         :returns: QuantAQ Client
         :rtype: quantaq.client.ClientBase
@@ -41,6 +46,8 @@ class ClientBase(object):
         self.api_key = api_key or os.environ.get("QUANTAQ_APIKEY", None)
         self.base_url = base_url
         self.version = version
+        self.rate_limit_retries = rate_limit_retries
+        self.rate_limit_sleep_s = rate_limit_sleep_s
 
         self._logger = logging.getLogger(__name__)
 
@@ -140,23 +147,23 @@ class ClientBase(object):
         # log the request
         self._logger.debug("{} {} {}: {} {}".format(type, url, payload, params, agent))
 
-        # retry up to 2 times on rate limit (429)
-        max_retries = 2
-        for attempt in range(max_retries + 1):
+        # retry up to {rate_limiting_retries} times on rate limit (429)
+        for attempt in range(self.rate_limit_retries + 1):
             response = requests_method(url, auth=self.auth, **kwargs)
 
             if response.status_code != 429:
                 return response
 
-            if attempt < max_retries:
-                self._logger.warning(f"Rate limited (429), sleeping 60s before retry {attempt + 1}/{max_retries}")
-                time.sleep(1)
+            if attempt < self.rate_limit_retries:
+                self._logger.warning(f"Rate limited (429), sleeping {self.rate_limit_sleep_s}s before retry {attempt + 1}/{self.rate_limit_retries}")
+                time.sleep(self.rate_limit_sleep_s)
             else:
                 raise QuantAQAPIException("Rate limiting retries exceeded.")
 
         return response
 
     def requests(self, endpoint, verb=GET, params=dict(), **kwargs):
+        # TODO troubled by the usage of dict() in params here and mutably
         """Request, but for many of them (i.e. deals with pagination)
         """
         # set defaults
@@ -210,8 +217,8 @@ class ClientBase(object):
 class APIClient(ClientBase):
     """
     """
-    def __init__(self, base_url, api_key=None, version=None):
-        super(APIClient, self).__init__(api_key, base_url, version)
+    def __init__(self, base_url, api_key=None, version=None, **kwargs):
+        super(APIClient, self).__init__(api_key, base_url, version, **kwargs)
 
     def whoami(self):
         """Return information about the current account user
@@ -299,21 +306,21 @@ class APIClient(ClientBase):
 
 
 class DevelopmentAPIClient(APIClient):
-    def __init__(self, api_key=None) -> None:
-        super().__init__("http://localhost:5000/device-api/", 
-                            version="v1", api_key=api_key)
+    def __init__(self, api_key=None, **kwargs) -> None:
+        super().__init__("http://localhost:5000/device-api/",
+                         version="v1", api_key=api_key, **kwargs)
 
 
 class StagingAPIClient(APIClient):
-    def __init__(self, api_key=None) -> None:
-        super().__init__("https://api.quant-aq.dev/device-api/", 
-                            version="v1", api_key=api_key)
+    def __init__(self, api_key=None, **kwargs) -> None:
+        super().__init__("https://api.quant-aq.dev/device-api/",
+                         version="v1", api_key=api_key, **kwargs)
 
 
 class ProductionAPIClient(APIClient):
-    def __init__(self, api_key=None) -> None:
-        super().__init__("https://api.quant-aq.com/device-api/", 
-                            version="v1", api_key=api_key)
+    def __init__(self, api_key=None, **kwargs) -> None:
+        super().__init__("https://api.quant-aq.com/device-api/",
+                         version="v1", api_key=api_key, **kwargs)
 
 
 

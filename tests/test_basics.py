@@ -122,6 +122,7 @@ def test_rate_limit_retry():
         "https://localhost/device-api/",
         api_key="a123",
         version="v1",
+        rate_limit_sleep_s=0,  # don't wait in tests
     )
 
     # if it fails twice, we're good
