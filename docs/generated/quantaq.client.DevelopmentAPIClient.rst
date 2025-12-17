@@ -37,6 +37,7 @@
       ~DevelopmentAPIClient.models
       ~DevelopmentAPIClient.networks
       ~DevelopmentAPIClient.organizations
+      ~DevelopmentAPIClient.solar
       ~DevelopmentAPIClient.users
    
    

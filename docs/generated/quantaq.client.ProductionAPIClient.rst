@@ -37,6 +37,7 @@
       ~ProductionAPIClient.models
       ~ProductionAPIClient.networks
       ~ProductionAPIClient.organizations
+      ~ProductionAPIClient.solar
       ~ProductionAPIClient.users
    
    

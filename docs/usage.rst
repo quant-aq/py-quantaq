@@ -60,6 +60,22 @@ You can then use it just as you would the :class:`quantaq.QuantAQAPIClient` clas
     >>> client = CustomAPIClient()
 
 
+Rate Limiting
+^^^^^^^^^^^^^
+
+The library by itself handles rate limiting that may be imposed by the QuantAQ API.
+When a response has a status code of 429, the client will retry up to 2 times,
+sleeping 60 seconds between each retry.
+
+This is an intentional, sensible default for QuantAQ's rate limiting policy,
+but can be customized by overriding the `rate_limit_retries` and/or `rate_limit_sleep_s`
+keyword arguments to the client constructor:
+
+.. code-block:: python
+
+    >>> client = quantaq.QuantAQAPIClient(rate_limit_retries=3, rate_limit_sleep_s=120)
+
+
 Account Information
 --------------------
 

@@ -37,6 +37,7 @@
       ~APIClient.models
       ~APIClient.networks
       ~APIClient.organizations
+      ~APIClient.solar
       ~APIClient.users
    
    
