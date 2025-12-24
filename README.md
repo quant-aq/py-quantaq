@@ -20,6 +20,12 @@ Or, install the library directly from GitHub:
 $ pip install git+https://github.com/quant-aq/py-quantaq.git
 ```
 
+You can also install a pre-release from PyPi:
+
+```bash
+$ pip install py-quantaq --pre
+```
+
 ## Docs
 
 Documentation is in progress, but can be found [here](https://quant-aq.github.io/py-quantaq).
